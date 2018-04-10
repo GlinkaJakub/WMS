@@ -1,8 +1,7 @@
 package gui.controllers;
 
-import JavaClasses.Facade;
 import JavaClasses.GUI;
-import JavaClasses.ServerCommunication;
+import JavaClasses.Management;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
@@ -20,7 +19,7 @@ public class MenuController {
     public void logOut() {
         Stage previousStage = (Stage) menuStackPane.getScene().getWindow();
         previousStage.close();
-        Facade.closeConnection();
+        Management.closeConnection();
 
         GUI gui = new GUI();
         Stage stage = new Stage();

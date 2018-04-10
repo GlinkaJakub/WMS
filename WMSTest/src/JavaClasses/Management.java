@@ -6,7 +6,7 @@ public class Management{
 
     private static ServerCommunication serverCommunication = new ServerCommunication();
 
-    public String ConnectToTheServer(String database, String host, String port, String user, String password){
+    public static String ConnectToTheServer(String database, String host, String port, String user, String password){
         serverCommunication.setDatabase(database);
         serverCommunication.setHost(host);
         serverCommunication.setPort(port);
@@ -26,20 +26,11 @@ public class Management{
         }
     }
 
-    public void closeConnection(){
+    public static void closeConnection(){
         try {
             serverCommunication.closeConnection();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-    }
-
-    public String SelectPersons(){
-        try {
-            String result = serverCommunication.SelectPersons();
-            return result;
-        } catch (SQLException e) {
-            return e.toString();
         }
     }
 }

@@ -1,10 +1,8 @@
 package gui.controllers;
 
-import JavaClasses.Facade;
 import JavaClasses.Management;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -45,9 +43,9 @@ public class StartController {
     }
 
     public void connectToTheServer() throws IOException {
-        String com = Facade.ConnectToTheServer(databaseField.getText(),hostField.getText(),portField.getText(),userField.getText(),passwordField.getText());
+        String com = Management.ConnectToTheServer(databaseField.getText(),hostField.getText(),portField.getText(),userField.getText(),passwordField.getText());
 
-        /*if(com.equals("Success")) {
+        if(com.equals("Success")) {
 
             Stage previousStage = (Stage) alert.getScene().getWindow();
             previousStage.close();
@@ -62,11 +60,8 @@ public class StartController {
         }else {
             alert.setTextFill(Color.RED);
             alert.setText(com);
-        }*/
-   }
+        }
 
-	public void selectPersons(){
-        alert.setText(Facade.selectPersons());
-    }
+   }
 
 }

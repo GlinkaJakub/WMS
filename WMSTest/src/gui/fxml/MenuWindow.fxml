@@ -12,7 +12,7 @@
 
 <StackPane fx:id="menuStackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.MenuController">
    <children>
-      <BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: rgb(173, 199, 204);">
+      <BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: rgb(70, 70, 70);">
          <center>
             <AnchorPane prefHeight="372.0" prefWidth="600.0">
                <children>
@@ -20,198 +20,162 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                              <AnchorPane prefWidth="300.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Deliver" textAlignment="CENTER" textFill="#200078" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Deliver" textAlignment="CENTER" textFill="GOLD" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                     </Button>
                                  </children>
-                              </StackPane>
-                              <StackPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="300.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Shipment" textAlignment="CENTER" textFill="#200078" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Shipment" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
-                              <StackPane layoutX="610.0" layoutY="10.0" prefHeight="150.0" prefWidth="300.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="815.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Availability of the warehouse" textAlignment="CENTER" textFill="#200078" textOverrun="CENTER_ELLIPSIS" wrapText="true" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Availability of the warehouse" textAlignment="CENTER" textFill="GOLD" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
+                              </AnchorPane>
                            </children>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                              <AnchorPane HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Create&#10;Product/Contractor&#10;" textAlignment="CENTER" textFill="#200078" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Create" textAlignment="CENTER" textFill="GOLD" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
-                              <StackPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="300.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Edit &#10;Product/Product Card/&#10;Contractor/LedgerEntry" textAlignment="CENTER" textFill="#200078" wrapText="true" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Edit&#10;&#10;" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
-                              <StackPane layoutX="610.0" layoutY="10.0" prefHeight="150.0" prefWidth="300.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="815.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Remove Product/Contractor" textAlignment="CENTER" textFill="#200078" textOverrun="CENTER_ELLIPSIS" wrapText="true" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Remove" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
+                              </AnchorPane>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                        <HBox layoutX="10.0" layoutY="433.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                              <AnchorPane HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Change place of product" textAlignment="CENTER" textFill="#200078" wrapText="true" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Change place of product" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
-                              <StackPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="300.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Show info about ..." textAlignment="CENTER" textFill="#200078" wrapText="true" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Show info about" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
-                              <StackPane layoutX="610.0" layoutY="10.0" prefHeight="150.0" prefWidth="300.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="815.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Properties" textAlignment="CENTER" textFill="#200078" textOverrun="CENTER_ELLIPSIS" wrapText="true" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Properties" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
+                              </AnchorPane>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                        <HBox layoutX="10.0" layoutY="433.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                              <AnchorPane HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="About program" textAlignment="CENTER" textFill="#200078" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="About program" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
-                              <StackPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="300.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button fx:id="logOutButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Log out" textAlignment="CENTER" textFill="#200078" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOut" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Log out" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
-                              <StackPane layoutX="610.0" layoutY="10.0" prefHeight="150.0" prefWidth="300.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="815.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(173, 255, 0); -fx-background-radius: 20 20 20 20; -fx-border-color: rgb(0, 3, 68); -fx-border-radius: 20 20 20 20;" text="Exit" textAlignment="CENTER" textFill="#200078" textOverrun="CENTER_ELLIPSIS" wrapText="true" StackPane.alignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Exit" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
-                                          <Font name="System Bold" size="13.0" />
+                                          <Font name="GilliusADF-BoldCond" size="25.0" />
                                        </font>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </padding>
-                                       <StackPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </StackPane.margin>
                                     </Button>
                                  </children>
-                              </StackPane>
+                              </AnchorPane>
                            </children>
                         </HBox>
                      </children>
@@ -220,12 +184,18 @@
             </AnchorPane>
          </center>
          <top>
-            <HBox prefHeight="42.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+            <HBox prefHeight="28.0" prefWidth="900.0" style="-fx-background-color: rgb(70,70,70);" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: RGB(70,70,70);" text="File" textFill="GOLD" HBox.hgrow="ALWAYS" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: rgb(70,70,70);" text="View" textFill="GOLD" />
+                  <Button layoutX="85.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: rgb(70,70,70);" text="Properties" textFill="GOLD" />
+                  <Button contentDisplay="TOP" depthTest="DISABLE" layoutX="160.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: rgb(70,70,70);" text="Help" textFill="GOLD" />
+               </children></HBox>
          </top>
          <bottom>
             <AnchorPane prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="15.0" prefHeight="36.0" prefWidth="600.0" style="-fx-background-color: rgb(173, 199, 204);" text="WMS v1.0" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="15.0" prefHeight="36.0" prefWidth="600.0" text="WMS v1.0" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="GilliusADF-Italic" size="17.0" />
                      </font>
