@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -51,8 +52,8 @@ public class StartController {
             previousStage.close();
 
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/gui/fxml/MainWindow.fxml"));
-            StackPane stackPane = loader.load();
-            Scene scene = new Scene(stackPane, 900, 600);
+            AnchorPane anchorPane = loader.load();
+            Scene scene = new Scene(anchorPane);
             Stage currentStage = new Stage();
             currentStage.setScene(scene);
             currentStage.setTitle("WMS");

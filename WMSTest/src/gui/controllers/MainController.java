@@ -28,6 +28,20 @@ public class MainController {
         setScreen(stackPane);
     }
 
+    public void loadDeliverScreen(){
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/gui/fxml/DeliverWindow.fxml"));
+        Pane pane = null;
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        DeliverWindowController deliverWindowController = loader.getController();
+        deliverWindowController.setMainController(this);
+        setScreen(pane);
+    }
+
     public void setScreen(Pane pane) {
         mainStackPane.getChildren().clear();
         mainStackPane.getChildren().add(pane);
