@@ -34,22 +34,6 @@ public class ServerCommunication {
         return "Success";
     }
 
-    public String SelectPersons() throws SQLException {
-
-        ResultSet rs = statement.executeQuery(
-                "SELECT p.Name, p.Surname, c.Name " +
-                    "FROM persons p " +
-                    "JOIN cities c ON (c.Id = p.CityId)");
-
-        StringBuilder stringBuilder = new StringBuilder();
-        while(rs.next()) {
-            stringBuilder.append(rs.getString(1) + " ");
-            stringBuilder.append(rs.getString(2) + " ");
-            stringBuilder.append(rs.getString(3) + "\n");
-        }
-        return stringBuilder.toString();
-    }
-
     public void closeConnection() throws SQLException {
 
             connection.close();
