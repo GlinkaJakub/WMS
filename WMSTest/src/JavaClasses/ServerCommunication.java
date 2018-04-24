@@ -1,7 +1,5 @@
 package JavaClasses;
 
-import com.sun.net.httpserver.Authenticator;
-
 import java.sql.*;
 
 public class ServerCommunication {

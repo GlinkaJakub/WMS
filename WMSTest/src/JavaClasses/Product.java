@@ -4,7 +4,7 @@ public class Product {
 
     private String name;
     private String id;
-    private String extraInfo;
+    private String maker;
     private int width;
     private int height;
     private int length;
@@ -26,12 +26,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getExtraInfo() {
-        return extraInfo;
+    public String getMaker() {
+        return maker;
     }
 
-    public void setExtraInfo(String extraInfo) {
-        this.extraInfo = extraInfo;
+    public void setMaker(String maker) {
+        this.maker = maker;
     }
 
     public int getWidth() {

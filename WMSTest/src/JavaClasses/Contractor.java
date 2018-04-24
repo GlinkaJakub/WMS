@@ -2,11 +2,9 @@ package JavaClasses;
 
 public class Contractor {
     private String name;
-    private String id;
+    private String nip;
     private String phone;
     private String info;
-
-
 
     public String getName() {
         return name;
@@ -16,12 +14,12 @@ public class Contractor {
         this.name = name;
     }
 
-    public String getId() {
-        return id;
+    public String getNip() {
+        return nip;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setNip(String nip) {
+        this.nip = nip;
     }
 
     public String getPhone() {

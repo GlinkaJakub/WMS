@@ -33,9 +33,6 @@ public class StartController {
     private TextField passwordField;
 
     @FXML
-    private Button connectButton;
-
-    @FXML
     private Label alert;
 
     @FXML
