@@ -44,7 +44,7 @@ public class Management{
     }
 
     public Product getProduct(int id){
-        Product product = null;
+        Product product = new Product();
         try {
             product = serverCommunication.getProduct(id);
         } catch (SQLException e) {
