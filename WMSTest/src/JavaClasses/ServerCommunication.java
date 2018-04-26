@@ -37,6 +37,20 @@ public class ServerCommunication {
             connection.close();
     }
 
+    public Product getProduct(int id) throws SQLException {
+        Product product = null;
+        ResultSet rs = statement.executeQuery("EXEC getProduct @" + id + " ");
+        rs.next();
+        product.setName(rs.getString("name"));
+        product.setGroup(rs.getString("group"));
+        product.setMaker(rs.getString("maker"));
+        product.setWidth(Integer.parseInt(rs.getString("width")));
+        product.setHeight(Integer.parseInt(rs.getString("height")));
+        product.setLength(Integer.parseInt(rs.getString("length")));
+        product.setWeight(Integer.parseInt(rs.getString("weight")));
+        return product;
+    }
+
     public String getHost() {
         return host;
     }

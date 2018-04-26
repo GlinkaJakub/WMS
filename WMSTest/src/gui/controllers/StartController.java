@@ -35,13 +35,16 @@ public class StartController {
     @FXML
     private Label alert;
 
+    private Management management;
+
     @FXML
     void initialize(){
-
+        management = Management.getInstance();
     }
 
     public void connectToTheServer() throws IOException {
-        String com = Management.ConnectToTheServer(databaseField.getText(),hostField.getText(),portField.getText(),userField.getText(),passwordField.getText());
+
+        String com = management.ConnectToTheServer(databaseField.getText(),hostField.getText(),portField.getText(),userField.getText(),passwordField.getText());
 
         if(com.equals("Success")) {
 

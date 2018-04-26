@@ -9,6 +9,12 @@ public class Product {
     private int height;
     private int length;
     private int weight;
+    private String group;
+
+    @Override
+    public String toString(){
+        return "ID: " + id + ", Name: " + name;
+    }
 
     public String getName() {
         return name;
@@ -64,5 +70,9 @@ public class Product {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }

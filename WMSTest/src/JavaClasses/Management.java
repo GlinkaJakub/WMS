@@ -4,9 +4,18 @@ import java.sql.SQLException;
 
 public class Management{
 
-    private static ServerCommunication serverCommunication = new ServerCommunication();
+    private static final Management instance = new Management();
 
-    public static String ConnectToTheServer(String database, String host, String port, String user, String password){
+    private Management(){
+    }
+
+    public static Management getInstance(){
+        return instance;
+    }
+
+    private ServerCommunication serverCommunication = new ServerCommunication();
+
+    public String ConnectToTheServer(String database, String host, String port, String user, String password){
         serverCommunication.setDatabase(database);
         serverCommunication.setHost(host);
         serverCommunication.setPort(port);
@@ -26,12 +35,22 @@ public class Management{
         }
     }
 
-    public static void closeConnection(){
+    public void closeConnection(){
         try {
             serverCommunication.closeConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public Product getProduct(int id){
+        Product product = null;
+        try {
+            product = serverCommunication.getProduct(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return product;
     }
 
 }

@@ -17,9 +17,10 @@ public class MenuController {
 
 
     public void logOut() {
+        Management management = Management.getInstance();
         Stage previousStage = (Stage) menuStackPane.getScene().getWindow();
         previousStage.close();
-        Management.closeConnection();
+        management.closeConnection();
 
         GUI gui = new GUI();
         Stage stage = new Stage();

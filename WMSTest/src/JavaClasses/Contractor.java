@@ -4,6 +4,9 @@ public class Contractor {
     private String name;
     private String nip;
     private String phone;
+    private String street;
+    private String postCode;
+    private String city;
     private String info;
 
     public String getName() {
