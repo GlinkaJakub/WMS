@@ -7,8 +7,13 @@ import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.PickResult;
+
+import java.util.Scanner;
 
 
 public class DeliverWindowController {
@@ -16,10 +21,25 @@ public class DeliverWindowController {
     private MainController mainController;
 
     @FXML
-    public ListView<Product> productListView;
+    private ListView<Product> productListView;
 
     @FXML
-    public TextField idProductTextField;
+    private TextField idProductTextField;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private Label idLabel;
+
+    @FXML
+    private Label makerLabel;
+
+    @FXML
+    private Label parametersLabel;
+
+    @FXML
+    private Label groupLabel;
 
     private ObservableList<Product> observableListProduct;
 
@@ -35,6 +55,16 @@ public class DeliverWindowController {
         Management management = Management.getInstance();
         Product product =  management.getProduct(Integer.parseInt(idProductTextField.getText()));
         observableListProduct.add(product);
+    }
+
+    public void showMoreAboutProduct(MouseEvent event){
+
+        Product product = productListView.getSelectionModel().getSelectedItems().get(0);
+        nameLabel.setText(product.getName());
+        idLabel.setText(product.getId());
+        makerLabel.setText(product.getMaker());
+        parametersLabel.setText(product.getWidth() + "x" + product.getHeight() + "x" + product.getLength() + ", weight: " + product.getWeight());
+        groupLabel.setText(product.getGroup());
     }
 
 

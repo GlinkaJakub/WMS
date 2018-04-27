@@ -6,7 +6,10 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -36,7 +39,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="productListView" prefHeight="200.0" prefWidth="200.0">
+                        <ListView fx:id="productListView" onMouseClicked="#showMoreAboutProduct" prefHeight="200.0" prefWidth="200.0">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -64,6 +67,48 @@
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </VBox.margin>
+                           <children>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="114.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="314.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="16.0" prefWidth="130.0" text="Name" textFill="GOLD" />
+                                    <Label alignment="CENTER" prefHeight="16.0" prefWidth="139.0" text="ID" textFill="GOLD" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER" prefHeight="16.0" prefWidth="217.0" text="Maker" textFill="GOLD" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER" prefHeight="16.0" prefWidth="178.0" text="Parameters" textFill="GOLD" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER" prefHeight="16.0" prefWidth="210.0" text="Group" textFill="GOLD" GridPane.rowIndex="4" />
+                                    <Label fx:id="nameLabel" prefHeight="16.0" prefWidth="354.0" textFill="GOLD" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label fx:id="idLabel" prefHeight="16.0" prefWidth="350.0" textFill="GOLD" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label fx:id="makerLabel" prefHeight="16.0" prefWidth="388.0" textFill="GOLD" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label fx:id="parametersLabel" prefHeight="16.0" prefWidth="466.0" textFill="GOLD" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label fx:id="groupLabel" prefHeight="16.0" prefWidth="420.0" textFill="GOLD" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </GridPane.margin></Label>
+                                 </children>
+                              </GridPane>
+                           </children>
                         </StackPane>
                      </children>
                   </VBox>
