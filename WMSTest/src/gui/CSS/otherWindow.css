@@ -1,0 +1,94 @@
+.windowBackground{
+    -fx-background-color: RGB(50,50,50);
+    -fx-opacity: 85%;
+    -fx-pref-height: 600;
+    -fx-pref-width: 900;
+}
+#deliverBackground{
+    -fx-background-image: url("../img/deliver-image.jpg");
+}
+#availabilityBackground{
+    -fx-background-image: url("../img/availability-image.jpg");
+}
+#shipmentBackground{
+    -fx-background-image: url("../img/shipment-image.jpg");
+}
+#createBackground{
+    -fx-background-image: url("../img/create-image.jpg");
+}
+
+.label{
+    -fx-font-family: "Noto Serif";
+    -fx-text-fill: GOLD;
+    -fx-font-size: 12px;
+}
+
+.text-field{
+    -fx-background-color: RGB(50,50,50);
+    -fx-text-fill: GOLD;
+    -fx-border-color: #32a700;
+    -fx-border-radius: 10px;
+
+}
+
+.list-view{
+    -fx-background-color: RGB(50,50,50);
+    -fx-border-color: #32a700;
+    -fx-border-style: dotted;
+    -fx-text-fill: GOLD;
+}
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    /* 3:, 4: */
+    -fx-background-color: linear-gradient(#32a700 0%, #52c922 50%, #76e944 75%, #ffffff 100%);
+    -fx-text-fill: white; /* 5 */
+}
+.list-cell { -fx-text-fill: GOLD; /* 5 */ }
+.list-cell:odd { -fx-background-color: RGB(50,50,50); /* 1 */ }
+.list-cell:even { -fx-background-color: RGB(50,50,50); /* for information */ }
+.list-cell:filled:hover {
+    -fx-background-color: #32a700; /* 2 */
+    -fx-text-fill: white; /* 5 */
+}
+.button{
+    -fx-font-family: "Noto Serif";
+    -fx-background-color: RGB(50,50,50);
+    -fx-text-fill: GOLD;
+    -fx-border-color: #32a700;
+    -fx-font-size: 12px;
+}
+
+.button:hover{
+    -fx-background-color: RGB(70,70,70);
+}
+
+.title{
+    -fx-text-fill: GOLD;
+    -fx-font-family: "Noto Serif";
+    -fx-font-size: 30px;
+    -fx-text-alignment: center;
+    -fx-pref-width: 900;
+}
+
+
+.subtitle{
+    -fx-text-fill: GOLD;
+    -fx-font-family: "Noto Serif";
+    -fx-font-size: 25px;
+    -fx-text-alignment: left;
+}
+.grid-pane{
+    -fx-border-style: dotted;
+    -fx-border-color: #32a700;
+    -fx-border-insets: 10px;
+    -fx-background-insets: 10px;
+}
+.tile {
+    -fx-border-color: #32a700;
+    -fx-border-insets: 2px;
+    -fx-padding: 2px;
+}
+
+.choice-box{
+    -fx-background-color: linear-gradient(to right,#ffffff,#76e944);
+    -fx-opacity: 100%;
+}

@@ -8,29 +8,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="menuStackPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.MenuController">
+<StackPane id="imageBackground" fx:id="menuStackPane" prefHeight="600.0" prefWidth="900.0" stylesheets="@../CSS/menuStylesheet.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.MenuController">
    <children>
-      <AnchorPane fx:id="centerMenuPane" prefHeight="372.0" prefWidth="600.0">
+      <AnchorPane fx:id="centerMenuPane" prefHeight="372.0" prefWidth="600.0" styleClass="menuBackground" stylesheets="@../CSS/menuStylesheet.css">
          <children>
             <VBox prefHeight="200.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <AnchorPane prefWidth="300.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loadDeliverScreen" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Deliver" textAlignment="CENTER" textFill="GOLD" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" />
-                                 </padding>
-                                 <font>
-                                    <Font name="GilliusADF-BoldCond" size="25.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                            </AnchorPane>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loadDeliverScreen" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Deliver" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="GilliusADF-BoldCond" size="25.0" />
+                           </font>
+                        </Button>
                         <AnchorPane layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Shipment" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loadShipmentScreen" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Shipment" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -42,7 +35,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="815.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Availability of the warehouse" textAlignment="CENTER" textFill="GOLD" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loadAvailabilityScreen" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Availability of the warehouse" textAlignment="CENTER" textFill="GOLD" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -58,7 +51,7 @@
                      <children>
                         <AnchorPane HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Create" textAlignment="CENTER" textFill="GOLD" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loadCreateScreen" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Create" textAlignment="CENTER" textFill="GOLD" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -70,7 +63,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Edit&#10;&#10;" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Edit" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -82,7 +75,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="815.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Remove" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Remove" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -98,7 +91,7 @@
                      <children>
                         <AnchorPane HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Change place of product" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Change place of product" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -110,7 +103,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Show info about" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Show info about" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -122,7 +115,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="815.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Properties" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Properties" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -138,7 +131,7 @@
                      <children>
                         <AnchorPane HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="About program" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="About program" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -150,7 +143,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOut" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Log out" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOut" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Log out" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>
@@ -162,7 +155,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="815.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefWidth="300.0" style="-fx-background-color: rgb(70, 70, 70); -fx-border-color: rgb(0,0,0);" text="Exit" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Exit" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="GilliusADF-BoldCond" size="25.0" />
                                  </font>

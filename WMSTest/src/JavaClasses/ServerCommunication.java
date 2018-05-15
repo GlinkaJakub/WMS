@@ -1,6 +1,8 @@
 package JavaClasses;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServerCommunication {
 
@@ -37,55 +39,38 @@ public class ServerCommunication {
             connection.close();
     }
 
-    public Product getProduct(int id) throws SQLException {
-        Product product = new Product();
-        ResultSet rs = statement.executeQuery("EXEC getProduct " + id + " ");
-        rs.next();
-        product.setId(rs.getString("id_product"));
-        product.setName(rs.getString("name"));
-        product.setGroup(rs.getString("idGroup"));
-        product.setMaker(rs.getString("maker"));
-        product.setWidth(Integer.parseInt(rs.getString("width")));
-        product.setHeight(Integer.parseInt(rs.getString("height")));
-        product.setLength(Integer.parseInt(rs.getString("lenght")));
-        product.setWeight(Integer.parseInt(rs.getString("weight")));
-        return product;
-    }
-
-    public String getHost() {
-        return host;
+    public List<Product> getProduct(String id) throws SQLException {
+        List<Product> productList = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getProductLike '" + id + "' ");
+        while(rs.next()) {
+            Product product = new Product();
+            product.setId(rs.getString("id_product"));
+            product.setName(rs.getString("name"));
+            product.setGroup(rs.getString("productGroup"));
+            product.setMaker(rs.getString("maker"));
+            product.setWidth(rs.getInt("width"));
+            product.setHeight(rs.getInt("height"));
+            product.setLength(rs.getInt("length"));
+            product.setWeight(rs.getInt("weight"));
+            productList.add(product);
+        }
+        return productList;
     }
 
     public void setHost(String host) {
         this.host = host;
     }
 
-    public String getPort() {
-        return port;
-    }
-
     public void setPort(String port) {
         this.port = port;
-    }
-
-    public String getDatabase() {
-        return database;
     }
 
     public void setDatabase(String database) {
         this.database = database;
     }
 
-    public String getUser() {
-        return user;
-    }
-
     public void setUser(String user) {
         this.user = user;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {

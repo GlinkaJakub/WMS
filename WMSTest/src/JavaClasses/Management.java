@@ -1,6 +1,10 @@
 package JavaClasses;
 
+import javafx.collections.ObservableList;
+
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Management{
 
@@ -35,6 +39,7 @@ public class Management{
         }
     }
 
+
     public void closeConnection(){
         try {
             serverCommunication.closeConnection();
@@ -43,14 +48,14 @@ public class Management{
         }
     }
 
-    public Product getProduct(int id){
-        Product product = new Product();
+    public List<Product> getProduct(String id){
+        List<Product> productList = new ArrayList<>();
         try {
-            product = serverCommunication.getProduct(id);
+            productList = serverCommunication.getProduct(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return product;
+        return productList;
     }
 
 }
