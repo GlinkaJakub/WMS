@@ -1,15 +1,14 @@
 package gui.controllers;
 
-import JavaClasses.Facade;
 import JavaClasses.GUI;
-import JavaClasses.ServerCommunication;
+import JavaClasses.Management;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-
 public class MenuController {
+
 
     @FXML
     private StackPane menuStackPane;
@@ -18,9 +17,10 @@ public class MenuController {
 
 
     public void logOut() {
+        Management management = Management.getInstance();
         Stage previousStage = (Stage) menuStackPane.getScene().getWindow();
         previousStage.close();
-        Facade.closeConnection();
+        management.closeConnection();
 
         GUI gui = new GUI();
         Stage stage = new Stage();
@@ -29,7 +29,17 @@ public class MenuController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public void loadDeliverScreen(){
+        mainController.loadDeliverScreen();
+    }
+
+    public void loadEditScreen(){
+        mainController.loadEditScreen();
+    }
+
+    public void loadShipmentScreen(){
 
     }
 
@@ -40,4 +50,5 @@ public class MenuController {
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
+
 }

@@ -1,7 +1,5 @@
 package JavaClasses;
 
-import com.sun.net.httpserver.Authenticator;
-
 import java.sql.*;
 
 public class ServerCommunication {
@@ -34,25 +32,24 @@ public class ServerCommunication {
         return "Success";
     }
 
-    public String SelectPersons() throws SQLException {
-
-        ResultSet rs = statement.executeQuery(
-                "SELECT p.Name, p.Surname, c.Name " +
-                    "FROM persons p " +
-                    "JOIN cities c ON (c.Id = p.CityId)");
-
-        StringBuilder stringBuilder = new StringBuilder();
-        while(rs.next()) {
-            stringBuilder.append(rs.getString(1) + " ");
-            stringBuilder.append(rs.getString(2) + " ");
-            stringBuilder.append(rs.getString(3) + "\n");
-        }
-        return stringBuilder.toString();
-    }
-
     public void closeConnection() throws SQLException {
 
             connection.close();
+    }
+
+    public Product getProduct(int id) throws SQLException {
+        Product product = new Product();
+        ResultSet rs = statement.executeQuery("EXEC getProduct " + id + " ");
+        rs.next();
+        product.setId(rs.getString("id_product"));
+        product.setName(rs.getString("name"));
+        product.setGroup(rs.getString("idGroup"));
+        product.setMaker(rs.getString("maker"));
+        product.setWidth(Integer.parseInt(rs.getString("width")));
+        product.setHeight(Integer.parseInt(rs.getString("height")));
+        product.setLength(Integer.parseInt(rs.getString("lenght")));
+        product.setWeight(Integer.parseInt(rs.getString("weight")));
+        return product;
     }
 
     public String getHost() {

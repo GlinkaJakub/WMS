@@ -4,7 +4,16 @@ import java.sql.SQLException;
 
 public class Management{
 
-    private static ServerCommunication serverCommunication = new ServerCommunication();
+    private static final Management instance = new Management();
+
+    private Management(){
+    }
+
+    public static Management getInstance(){
+        return instance;
+    }
+
+    private ServerCommunication serverCommunication = new ServerCommunication();
 
     public String ConnectToTheServer(String database, String host, String port, String user, String password){
         serverCommunication.setDatabase(database);
@@ -34,12 +43,14 @@ public class Management{
         }
     }
 
-    public String SelectPersons(){
+    public Product getProduct(int id){
+        Product product = new Product();
         try {
-            String result = serverCommunication.SelectPersons();
-            return result;
+            product = serverCommunication.getProduct(id);
         } catch (SQLException e) {
-            return e.toString();
+            e.printStackTrace();
         }
+        return product;
     }
+
 }
