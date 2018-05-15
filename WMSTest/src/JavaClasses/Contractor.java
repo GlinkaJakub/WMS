@@ -5,9 +5,15 @@ public class Contractor {
     private String nip;
     private String phone;
     private String street;
+    private String buildingNumber;
     private String postCode;
     private String city;
-    private String info;
+    private String email;
+
+    @Override
+    public String toString(){
+        return name + ", NIP: " + nip;
+    }
 
     public String getName() {
         return name;
@@ -33,11 +39,43 @@ public class Contractor {
         this.phone = phone;
     }
 
-    public String getInfo() {
-        return info;
+    public String getStreet() {
+        return street;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getBuildingNumber() {
+        return buildingNumber;
+    }
+
+    public void setBuildingNumber(String buildingNumber) {
+        this.buildingNumber = buildingNumber;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

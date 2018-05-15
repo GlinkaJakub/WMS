@@ -56,7 +56,23 @@ public class ServerCommunication {
         }
         return productList;
     }
-
+    public List<Provider> getProvider(String id) throws SQLException {
+        List<Provider> providerList = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getProviderLike '" + id + "' ");
+        while(rs.next()) {
+            Provider provider = new Provider();
+            provider.setName(rs.getString("name"));
+            provider.setNip(rs.getString("nip"));
+            provider.setPhone(rs.getString("phoneNumber"));
+            provider.setBuildingNumber(rs.getString("buildingnumber"));
+            provider.setCity(rs.getString("city"));
+            provider.setEmail(rs.getString("email"));
+            provider.setPostCode(rs.getString("postcode"));
+            provider.setStreet(rs.getString("street"));
+            providerList.add(provider);
+        }
+        return providerList;
+    }
     public void setHost(String host) {
         this.host = host;
     }
@@ -76,5 +92,6 @@ public class ServerCommunication {
     public void setPassword(String password) {
         this.password = password;
     }
+
 
 }

@@ -2,9 +2,8 @@ package gui.controllers;
 
 import JavaClasses.Management;
 import JavaClasses.Product;
-import javafx.beans.property.BooleanProperty;
+import JavaClasses.Provider;
 import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,6 +34,9 @@ public class DeliverController {
     private ListView<Product> productsToDeliverView;
 
     @FXML
+    private ListView<Provider> providerListView;
+
+    @FXML
     private TextField searchProduct;
 
     @FXML
@@ -55,19 +57,24 @@ public class DeliverController {
     @FXML
     private Label quantityLabel;
 
-    private ObservableList<Product> observableSearchingList;
+    @FXML
+    private TextField identProviderTextField;
+
+    private ObservableList<Product> searchingListProduct;
 
     private ObservableList<Product> productsToDeliver;
 
-    private List<String> quantityProducts = new ArrayList<>();
+    private ObservableList<Provider> searchingListProvider;
+
+    private List<Integer> quantityProducts = new ArrayList<>();
 
     @FXML
     void initialize(){
 
 
         ListProperty<Product> listProperty = new SimpleListProperty<>();
-        observableSearchingList = FXCollections.observableArrayList();
-        listProperty.set(observableSearchingList);
+        searchingListProduct = FXCollections.observableArrayList();
+        listProperty.set(searchingListProduct);
         productListView.itemsProperty().bindBidirectional(listProperty);
 
         ListProperty<Product> deliverListProperty = new SimpleListProperty<>();
@@ -75,23 +82,40 @@ public class DeliverController {
         deliverListProperty.set(productsToDeliver);
         productsToDeliverView.itemsProperty().bindBidirectional(deliverListProperty);
 
+        ListProperty<Provider> providerListProperty = new SimpleListProperty<>();
+        searchingListProvider = FXCollections.observableArrayList();
+        providerListProperty.set(searchingListProvider);
+        providerListView.itemsProperty().bindBidirectional(providerListProperty);
+
         quantityTextField.disableProperty().bind(idLabel.textProperty().isEmpty());
         addButton.disableProperty().bind(quantityTextField.textProperty().isEmpty());
 
         searchProduct.textProperty().addListener((observable,oldValue,newValue)->{
-            observableSearchingList.clear();
+            searchingListProduct.clear();
             if(newValue.length() > 0)
                 getProduct(newValue);
         });
+
+        identProviderTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
+            searchingListProvider.clear();
+            if(newValue.length() > 0)
+                getProvider(newValue);
+        }));
+    }
+
+    private void getProvider(String id){
+        Management management = Management.getInstance();
+        List<Provider> providers = management.getProvider(id);
+        searchingListProvider.addAll(providers);
     }
 
     private void getProduct(String id){
         Management management = Management.getInstance();
         List<Product> productList =  management.getProduct(id);
-        observableSearchingList.addAll(productList);
+        searchingListProduct.addAll(productList);
     }
 
-    public void showMoreAboutProduct(){
+    public void showMoreAboutProduct() {
         quantityLabel.setText("");
         Product product = productListView.getSelectionModel().getSelectedItem();
         nameLabel.setText(product.getName());
@@ -101,10 +125,16 @@ public class DeliverController {
         groupLabel.setText(product.getGroup());
     }
 
-    public void addToList(){
-         quantityLabel.setText(quantityTextField.getText());
-         productsToDeliver.add(productListView.getSelectionModel().getSelectedItem());
-         quantityProducts.add(quantityTextField.getText());
+    public void addToList() {
+        int index = productsToDeliver.indexOf(productListView.getSelectionModel().getSelectedItem());
+        if (index >= 0) {
+            quantityProducts.remove(index);
+            productsToDeliver.remove(index);
+        }
+
+        productsToDeliver.add(productListView.getSelectionModel().getSelectedItem());
+        quantityProducts.add(Integer.parseInt(quantityTextField.getText()));
+        quantityLabel.setText(quantityTextField.getText());
     }
 
     public void showMoreAboutDeliverProduct(){
@@ -114,7 +144,7 @@ public class DeliverController {
         makerLabel.setText(product.getMaker());
         parametersLabel.setText(product.getWidth() + "x" + product.getHeight() + "x" + product.getLength() + ", weight: " + product.getWeight());
         groupLabel.setText(product.getGroup());
-        quantityLabel.setText(quantityProducts.get(productsToDeliver.indexOf(product)));
+        quantityLabel.setText(quantityProducts.get(productsToDeliver.indexOf(product)).toString());
     }
 
 

@@ -58,4 +58,14 @@ public class Management{
         return productList;
     }
 
+    public List<Provider> getProvider(String id) {
+
+        List<Provider> providerList = new ArrayList<>();
+        try{
+            providerList = serverCommunication.getProvider(id);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return providerList;
+    }
 }

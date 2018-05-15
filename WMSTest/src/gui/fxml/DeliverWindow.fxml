@@ -169,7 +169,7 @@
                               <Button layoutX="144.0" layoutY="4.0" mnemonicParsing="false" text="Add new provider" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                            </children>
                         </AnchorPane>
-                        <ListView prefHeight="192.0" prefWidth="277.0" VBox.vgrow="ALWAYS">
+                        <ListView fx:id="providerListView" prefHeight="192.0" prefWidth="277.0" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -195,7 +195,7 @@
                         </Label>
                         <HBox>
                            <children>
-                              <TextField layoutY="11.0" prefHeight="26.0" prefWidth="161.0">
+                              <TextField fx:id="identProviderTextField" layoutY="11.0" prefHeight="26.0" prefWidth="161.0">
                                  <HBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </HBox.margin>
