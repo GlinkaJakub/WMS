@@ -66,11 +66,6 @@
                         <Insets left="50.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="editDeleteButtoon" mnemonicParsing="false" onAction="#deleteObject" prefHeight="45.0" prefWidth="150.0" text="Delete">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
          </children>
