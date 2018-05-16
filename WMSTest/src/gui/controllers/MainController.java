@@ -24,9 +24,9 @@ public class MainController {
     }
 
     public void loadDeliverScreen(){
-        FXMLLoader loader = fxmlLoader("/gui/fxml/DeliverWindow.fxml");
+        FXMLLoader loader = fxmlLoader("/gui/fxml/DelivShipWindow.fxml");
 
-        DeliverController deliverWindowController = loader.getController();
+        DelivShipController deliverWindowController = loader.getController();
         deliverWindowController.setMainController(this);
     }
 
@@ -48,6 +48,13 @@ public class MainController {
 
         CreateController controller = loader.getController();
         controller.setMainController(this);
+    }
+
+    public void loadEditScreen(){
+        FXMLLoader loader = fxmlLoader("/gui/fxml/EditWindow.fxml");
+
+        EditController editController = loader.getController();
+        editController.setMainController(this);
     }
 
     public FXMLLoader fxmlLoader(String path){

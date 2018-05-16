@@ -35,14 +35,13 @@ public class MenuController {
         mainController.loadDeliverScreen();
     }
 
-    public void loadShipmentScreen(){
-        mainController.loadShipmentScreen();
-    }
     public void loadAvailabilityScreen(){
         mainController.loadAvailabilityScreen();
     }
 
     public void loadCreateScreen(){mainController.loadCreateScreen();}
+
+    public void loadEditScreen(){mainController.loadEditScreen();}
 
     public void exit(){
         Platform.exit();

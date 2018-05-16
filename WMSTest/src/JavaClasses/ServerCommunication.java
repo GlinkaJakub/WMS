@@ -73,6 +73,56 @@ public class ServerCommunication {
         }
         return providerList;
     }
+
+    public List<Client> getClient(String id) throws SQLException {
+        List<Client> clientList = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getClientLike '" + id + "' ");
+        while(rs.next()){
+            Client client = new Client();
+            client.setName(rs.getString("name"));
+            client.setNip(rs.getString("nip"));
+            client.setPhone(rs.getString("phoneNumber"));
+            client.setBuildingNumber(rs.getString("buildingnumber"));
+            client.setCity(rs.getString("city"));
+            client.setEmail(rs.getString("email"));
+            client.setPostCode(rs.getString("postcode"));
+            client.setStreet(rs.getString("street"));
+            clientList.add(client);
+        }
+        return clientList;
+    }
+
+
+    public void addProduct(Product product) throws SQLException {
+        statement.executeQuery("EXEC AddProduct '" + product.getName() +
+                "', '" + product.getGroup() + "', '" + product.getMaker() +
+                "', " + product.getWidth()+ ", " + product.getHeight()+
+                ", " + product.getLength()+ ", " + product.getWeight() + " ");
+    }
+
+    public void addGroup(ProductGroup productGroup) throws SQLException {
+        statement.executeQuery("EXEC AddGroup '" + productGroup.getName() +"' ");
+    }
+
+    public void addProvider(Provider provider) throws SQLException {
+        statement.executeQuery("EXEC AddProvider '"+ provider.getName() +
+                "', '" + provider.getNip() + "', '" + provider.getCity() +
+                "', '" + provider.getPostCode() + "', '" + provider.getStreet()+
+                "', '" + provider.getBuildingNumber()+ "', '" + provider.getPhone() +
+                "', '" + provider.getEmail() + "' "
+                );
+    }
+
+    public void addClient(Client client) throws SQLException {
+        statement.executeQuery("EXEC AddClient '"+ client.getName() +
+                "', '" + client.getNip() + "', '" + client.getCity() +
+                "', '" + client.getPostCode() + "', '" + client.getStreet()+
+                "', '" + client.getBuildingNumber()+ "', '" + client.getPhone() +
+                "', '" + client.getEmail() + "' "
+        );
+    }
+
+
     public void setHost(String host) {
         this.host = host;
     }
@@ -93,5 +143,24 @@ public class ServerCommunication {
         this.password = password;
     }
 
+    public void putOnShelf(Product product, Contractor finalContractor) throws SQLException {
+        statement.executeQuery("EXEC PutOnShelf '" + product.getId() + "'");
+    }
 
+    public void getProductsOut(Product product, Contractor finalContractor) {
+
+    }
+
+    public List<ProductCard> getProductCard( String id) throws SQLException {
+        List<ProductCard> productCardList = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getProductCard '" + id + "' ");
+        while(rs.next()) {
+            ProductCard productCard = new ProductCard();
+            productCard.setId(rs.getString("id_product"));
+            productCard.setName(rs.getString("name"));
+            productCard.setPlaceId(rs.getString("placement"));
+            productCardList.add(productCard);
+        }
+        return productCardList;
+    }
 }

@@ -1,25 +1,23 @@
 package gui.controllers;
 
-import JavaClasses.Management;
-import JavaClasses.Product;
-import JavaClasses.Provider;
+import JavaClasses.*;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class DeliverController {
+public class DelivShipController {
 
     private MainController mainController;
+
+    @FXML
+    private Label finalContractorLabel;
 
     @FXML
     private Button addButton;
@@ -34,7 +32,7 @@ public class DeliverController {
     private ListView<Product> productsToDeliverView;
 
     @FXML
-    private ListView<Provider> providerListView;
+    private ListView<Contractor> providerListView;
 
     @FXML
     private TextField searchProduct;
@@ -58,18 +56,59 @@ public class DeliverController {
     private Label quantityLabel;
 
     @FXML
-    private TextField identProviderTextField;
+    private Label contractorNameLabel;
+
+    @FXML
+    private Label email;
+
+    @FXML
+    private Label address;
+
+    @FXML
+    private Label phone;
+
+    @FXML
+    private TextField identifyContractorTextField;
+
+    @FXML
+    private CheckBox isDeliver;
+
+    @FXML
+    private CheckBox isShipment;
+
+    @FXML
+    private Label contractorLabel;
 
     private ObservableList<Product> searchingListProduct;
 
     private ObservableList<Product> productsToDeliver;
 
-    private ObservableList<Provider> searchingListProvider;
+    private ObservableList<Contractor> searchingListContractor;
 
     private List<Integer> quantityProducts = new ArrayList<>();
 
+    private Contractor finalContractor = new Contractor();
+
     @FXML
     void initialize(){
+
+        isDeliver.selectedProperty().addListener(((observable, oldValue, newValue) -> {
+
+            if(newValue) {
+                isShipment.setSelected(false);
+                contractorLabel.setText("Provider");
+                identifyContractorTextField.setText("");
+            }else
+                isShipment.setSelected(true);
+        }));
+
+        isShipment.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue) {
+                isDeliver.setSelected(false);
+                contractorLabel.setText("Client");
+            }else
+                isDeliver.setSelected(true);
+        });
 
 
         ListProperty<Product> listProperty = new SimpleListProperty<>();
@@ -82,9 +121,9 @@ public class DeliverController {
         deliverListProperty.set(productsToDeliver);
         productsToDeliverView.itemsProperty().bindBidirectional(deliverListProperty);
 
-        ListProperty<Provider> providerListProperty = new SimpleListProperty<>();
-        searchingListProvider = FXCollections.observableArrayList();
-        providerListProperty.set(searchingListProvider);
+        ListProperty<Contractor> providerListProperty = new SimpleListProperty<>();
+        searchingListContractor = FXCollections.observableArrayList();
+        providerListProperty.set(searchingListContractor);
         providerListView.itemsProperty().bindBidirectional(providerListProperty);
 
         quantityTextField.disableProperty().bind(idLabel.textProperty().isEmpty());
@@ -96,17 +135,32 @@ public class DeliverController {
                 getProduct(newValue);
         });
 
-        identProviderTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
-            searchingListProvider.clear();
-            if(newValue.length() > 0)
-                getProvider(newValue);
+        identifyContractorTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
+            searchingListContractor.clear();
+            if(!newValue.isEmpty()) {
+                if (isDeliver.isSelected())
+                    getProvider(newValue);
+                else
+                    getClient(newValue);
+            }else{
+                contractorNameLabel.setText("");
+                address.setText("");
+                phone.setText("");
+                email.setText("");
+            }
         }));
     }
 
     private void getProvider(String id){
         Management management = Management.getInstance();
         List<Provider> providers = management.getProvider(id);
-        searchingListProvider.addAll(providers);
+        searchingListContractor.addAll(providers);
+    }
+
+    private void getClient(String id){
+        Management management = Management.getInstance();
+        List<Client> clients = management.getClient(id);
+        searchingListContractor.addAll(clients);
     }
 
     private void getProduct(String id){
@@ -116,6 +170,7 @@ public class DeliverController {
     }
 
     public void showMoreAboutProduct() {
+        productsToDeliverView.getSelectionModel().clearSelection();
         quantityLabel.setText("");
         Product product = productListView.getSelectionModel().getSelectedItem();
         nameLabel.setText(product.getName());
@@ -123,6 +178,19 @@ public class DeliverController {
         makerLabel.setText(product.getMaker());
         parametersLabel.setText(product.getWidth() + "x" + product.getHeight() + "x" + product.getLength() + ", weight: " + product.getWeight());
         groupLabel.setText(product.getGroup());
+    }
+
+    public void showMoreAboutContractor(){
+        Contractor contractor= providerListView.getSelectionModel().getSelectedItem();
+        contractorNameLabel.setText(contractor.getName() + ", " + contractor.getNip());
+        phone.setText(contractor.getPhone());
+        address.setText(contractor.getCity() + " " + contractor.getStreet() + " st. " + contractor.getPostCode() + " " + contractor.getCity());
+        email.setText(contractor.getEmail());
+    }
+
+    public void addProvider(){
+        finalContractor = providerListView.getSelectionModel().getSelectedItem();
+        finalContractorLabel.setText(finalContractor.toString());
     }
 
     public void addToList() {
@@ -138,6 +206,7 @@ public class DeliverController {
     }
 
     public void showMoreAboutDeliverProduct(){
+        productListView.getSelectionModel().clearSelection();
         Product product = productsToDeliverView.getSelectionModel().getSelectedItem();
         nameLabel.setText(product.getName());
         idLabel.setText(product.getId());
@@ -150,6 +219,14 @@ public class DeliverController {
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
+    }
+
+    public void realize(){
+        Management management = Management.getInstance();
+        if(isDeliver.isSelected())
+             management.realizeDeliver(productsToDeliver,quantityProducts,finalContractor);
+        else
+            management.realizeShipment(productsToDeliver,quantityProducts,finalContractor);
     }
 
     public void cancel(){
