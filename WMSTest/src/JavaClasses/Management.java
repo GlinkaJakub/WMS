@@ -124,6 +124,11 @@ public class Management{
     }
 
     public void addSector() {
+        try {
+            serverCommunication.addSector();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addRack(String text) {
@@ -141,5 +146,14 @@ public class Management{
             e.printStackTrace();
         }
         return productCards;
+    }
+
+    public List<Sector> getSectors() {
+        try {
+            return serverCommunication.getSectors();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

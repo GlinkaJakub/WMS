@@ -96,8 +96,10 @@ public class DelivShipController {
 
             if(newValue) {
                 isShipment.setSelected(false);
+                searchingListContractor.clear();
                 contractorLabel.setText("Provider");
                 identifyContractorTextField.setText("");
+
             }else
                 isShipment.setSelected(true);
         }));

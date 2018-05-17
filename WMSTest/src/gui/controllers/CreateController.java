@@ -1,10 +1,14 @@
 package gui.controllers;
 
 import JavaClasses.*;
-import javafx.event.ActionEvent;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 
@@ -33,6 +37,11 @@ public class CreateController {
 
     @FXML
     public Button addRackButton;
+
+    @FXML
+    public ListView<Sector> sectorListView;
+
+    private ObservableList<Sector> sectorList = FXCollections.observableArrayList();
 
     private MainController mainController;
 
@@ -110,6 +119,10 @@ public class CreateController {
                  isClient.setSelected(true);
          });
 
+         ListProperty<Sector> listProperty = new SimpleListProperty<>();
+         listProperty.set(sectorList);
+         sectorListView.itemsProperty().bindBidirectional(listProperty);
+         sectorList.addAll(management.getSectors());
      }
 
     public void setMainController(MainController mainController) {
@@ -175,7 +188,9 @@ public class CreateController {
     }
 
     public void addSector() {
+         sectorList.clear();
          management.addSector();
+         sectorList.addAll(management.getSectors());
     }
 
     public void addRack() {

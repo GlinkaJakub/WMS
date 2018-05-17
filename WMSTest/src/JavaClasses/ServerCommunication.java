@@ -163,4 +163,21 @@ public class ServerCommunication {
         }
         return productCardList;
     }
+
+    public void addSector() throws SQLException {
+        ResultSet rs = statement.executeQuery("EXEC addSector ");
+    }
+
+    public List<Sector> getSectors() throws SQLException {
+        List<Sector> sectors = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getSectors");
+        while(rs.next()) {
+            Sector sector = new Sector();
+            sector.setId(rs.getString("id_sector"));
+            sector.setRemainingSpace(rs.getInt("remainingspace"));
+            sector.setSpace(rs.getInt("totalspace"));
+            sectors.add(sector);
+        }
+        return sectors;
+    }
 }
