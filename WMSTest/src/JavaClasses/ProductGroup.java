@@ -1,9 +1,7 @@
 package JavaClasses;
 
-public class ProductCard {
-
+public class ProductGroup {
     private String id;
-    private String placeId;
     private String name;
 
     public String getName() {
@@ -21,13 +19,4 @@ public class ProductCard {
     public void setId(String id) {
         this.id = id;
     }
-
-    public String getPlaceId() {
-        return placeId;
-    }
-
-    public void setPlaceId(String placeId) {
-        this.placeId = placeId;
-    }
-
 }

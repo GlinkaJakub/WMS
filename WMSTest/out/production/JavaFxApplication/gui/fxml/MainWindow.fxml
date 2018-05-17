@@ -11,7 +11,7 @@
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <MenuBar style="-fx-background-color: rgb(70,70,70);">
+            <MenuBar prefHeight="30.0" stylesheets="@../CSS/mainStylesheet.css" VBox.vgrow="ALWAYS">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
@@ -30,7 +30,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <StackPane fx:id="mainStackPane" prefHeight="600.0" prefWidth="900.0" VBox.vgrow="ALWAYS" />
+            <StackPane id="windowBackground" fx:id="mainStackPane" prefHeight="600.0" prefWidth="900.0" stylesheets="@../CSS/mainStylesheet.css" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
    </children>
