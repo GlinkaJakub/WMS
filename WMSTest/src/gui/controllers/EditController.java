@@ -71,19 +71,19 @@ public class EditController {
     private Label editableObject;
 
     @FXML
-    public void openProductList( ) {
+    public void openProductList() {
     }
 
     @FXML
-    public void openProductCardList( ) {
+    public void openProductCardList() {
     }
 
     @FXML
-    public void openContractorList( ) {
+    public void openContractorList() {
     }
 
     @FXML
-    public void cancel(){
+    public void cancel() {
         mainController.loadMenuScreen();
     }
 
@@ -92,17 +92,17 @@ public class EditController {
         this.mainController = mainController;
     }
 
-    public void setOnAction( ) {
+    public void setOnAction() {
     }
 
 
-    public void initialize(){
+    public void initialize() {
         ListProperty<Object> objects = new SimpleListProperty<>();
         editableObjects = FXCollections.observableArrayList();
         objects.set(editableObjects);
         editListView.itemsProperty().bindBidirectional(objects);
-        editableObjects.addAll(management.getProduct(searchTextField.getText()));
-
+        productToggle.setSelected(true);
+        addAllToList();
 
         searchTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
             editableObjects.clear();
@@ -113,7 +113,7 @@ public class EditController {
             addAllToList();
             clearLabel();
         }));
-        productToggle.setSelected(true);
+
     }
 
     private void clearLabel() {
@@ -126,16 +126,15 @@ public class EditController {
 
     public void showMore() {
         Object object = editListView.getSelectionModel().getSelectedItem();
-        if(object instanceof Product){
-            Product product =  (Product) object;
+        if (object instanceof Product) {
+            Product product = (Product) object;
             label1.setText(product.getId());
             label2.setText(product.getName());
             label3.setText(product.getGroup());
             label4.setText(product.getMaker());
             label5.setText(product.getWidth() + "x" + product.getHeight() + "x" +
-                    product.getLength() +", weight: " + product.getWeight());
-        }
-        else if(object instanceof Contractor){
+                    product.getLength() + ", weight: " + product.getWeight());
+        } else if (object instanceof Contractor) {
             Contractor contractor = (Contractor) object;
             label1.setText(contractor.getName());
             label2.setText(contractor.getNip());
@@ -143,7 +142,7 @@ public class EditController {
             label4.setText(contractor.getEmail());
             label5.setText(contractor.getStreet() + " st. " + contractor.getBuildingNumber() +
                     " " + contractor.getPostCode() + " " + contractor.getCity());
-        }else{
+        } else {
             ProductCard productCard = (ProductCard) object;
             label1.setText(productCard.getId());
             label2.setText(productCard.getName());
@@ -155,7 +154,7 @@ public class EditController {
 
     private void addAllToList() {
         editableObjects.clear();
-        if(productToggle.isSelected()) {
+        if (productToggle.isSelected()) {
 
             editableObjects.addAll(management.getProduct(searchTextField.getText()));
             label00.setText("ID");
@@ -163,8 +162,7 @@ public class EditController {
             label02.setText("Group");
             label03.setText("Maker");
             label04.setText("Parameters");
-        }
-        else if(contractorToggle.isSelected()) {
+        } else if (contractorToggle.isSelected()) {
 
             editableObjects.addAll(management.getClient(searchTextField.getText()));
             editableObjects.addAll(management.getProvider(searchTextField.getText()));
@@ -173,8 +171,7 @@ public class EditController {
             label02.setText("Phone");
             label03.setText("E-mail");
             label04.setText("Address");
-        }
-        else if (productCardToggle.isSelected()) {
+        } else if (productCardToggle.isSelected()) {
 
             editableObjects.addAll(management.getProductCard(searchTextField.getText()));
             label00.setText("ID");

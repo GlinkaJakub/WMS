@@ -1,60 +1,85 @@
-.windowBackground{
-    -fx-background-color: RGB(50,50,50);
+.windowBackground {
+    -fx-background-color: RGB(50, 50, 50);
     -fx-opacity: 85%;
     -fx-pref-height: 600;
     -fx-pref-width: 900;
 }
-#deliverBackground{
+
+#deliverBackground {
     -fx-background-image: url("../img/deliver-image.jpg");
 }
-#availabilityBackground{
+
+#availabilityBackground {
     -fx-background-image: url("../img/availability-image.jpg");
 }
-#shipmentBackground{
+
+#shipmentBackground {
     -fx-background-image: url("../img/shipment-image.jpg");
 }
-#createBackground{
+
+#createBackground {
     -fx-background-image: url("../img/create-image.jpg");
 }
-#editBackground{
+
+#editBackground {
     -fx-background-image: url("../img/edit-image.jpg");
 }
 
-.label{
+#changeBackground {
+    -fx-background-image: url("../img/change-image.jpg");
+}
+
+#infoBackground {
+    -fx-background-image: url("../img/info-image.jpg");
+}
+
+.label {
     -fx-font-family: "Noto Serif";
     -fx-text-fill: GOLD;
     -fx-font-size: 12px;
 }
 
-.text-field{
-    -fx-background-color: RGB(50,50,50);
+.text-field {
+    -fx-background-color: RGB(50, 50, 50);
     -fx-text-fill: GOLD;
     -fx-border-color: #32a700;
     -fx-border-radius: 10px;
 
 }
 
-.list-view{
-    -fx-background-color: RGB(50,50,50);
+.list-view {
+    -fx-background-color: RGB(50, 50, 50);
     -fx-border-color: #32a700;
     -fx-border-style: dotted;
     -fx-text-fill: GOLD;
 }
+
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
     /* 3:, 4: */
     -fx-background-color: linear-gradient(#32a700 0%, #52c922 50%, #76e944 75%, #ffffff 100%);
     -fx-text-fill: white; /* 5 */
 }
-.list-cell { -fx-text-fill: GOLD; /* 5 */ }
-.list-cell:odd { -fx-background-color: RGB(50,50,50); /* 1 */ }
-.list-cell:even { -fx-background-color: RGB(50,50,50); /* for information */ }
+
+.list-cell {
+    -fx-text-fill: GOLD; /* 5 */
+}
+
+.list-cell:odd {
+    -fx-background-color: RGB(50, 50, 50); /* 1 */
+}
+
+.list-cell:even {
+    -fx-background-color: RGB(50, 50, 50); /* for information */
+}
+
 .list-cell:filled:hover {
     -fx-background-color: #32a700; /* 2 */
     -fx-text-fill: white; /* 5 */
 }
-.button{
+
+.button {
     -fx-font-family: "Noto Serif";
-    -fx-background-color: RGB(50,50,50);
+    -fx-background-color: RGB(50, 50, 50);
     -fx-text-fill: GOLD;
     -fx-border-color: #32a700;
     -fx-font-size: 12px;
@@ -63,11 +88,11 @@
     -fx-padding: 10px;
 }
 
-.button:hover{
-    -fx-background-color: RGB(70,70,70);
+.button:hover {
+    -fx-background-color: RGB(70, 70, 70);
 }
 
-.title{
+.title {
     -fx-text-fill: GOLD;
     -fx-font-family: "Noto Serif";
     -fx-font-size: 30px;
@@ -75,45 +100,48 @@
     -fx-pref-width: 900;
 }
 
-
-.subtitle{
+.subtitle {
     -fx-text-fill: GOLD;
     -fx-font-family: "Noto Serif";
     -fx-font-size: 25px;
     -fx-text-alignment: left;
 }
-.grid-pane{
+
+.grid-pane {
     -fx-border-style: dotted;
     -fx-border-color: #32a700;
     -fx-border-insets: 10px;
     -fx-background-insets: 10px;
 }
+
 .tile {
     -fx-border-color: #32a700;
     -fx-border-insets: 2px;
+    -fx-border-style: dotted;
     -fx-padding: 2px;
 }
 
-.choice-box{
-    -fx-background-color: linear-gradient(to right,#ffffff,#76e944);
+.choice-box {
+    -fx-background-color: linear-gradient(to right, rgb(50,50,50), #76e944);
     -fx-opacity: 100%;
+    -fx-text-fill: white;
 }
 
-.bigButton{
+.bigButton {
     -fx-pref-width: 200;
     -fx-pref-height: 100;
     -fx-font-size: 40px;
 }
 
-.check-box{
+.check-box {
     -fx-text-fill: GOLD;
 }
 
 .check-box .box {
 
-    -fx-background-color: RGB(50,50,50);
-    -fx-border-color:#32a700;
-    -fx-border-radius:3px;
+    -fx-background-color: RGB(50, 50, 50);
+    -fx-border-color: #32a700;
+    -fx-border-radius: 3px;
 
 }
 
@@ -129,28 +157,27 @@
     -fx-background-color: #32a700;
     -fx-text-fill: GOLD;
 }
+
 .tab-pane .tab-header-area .tab-header-background {
     -fx-opacity: 0;
 }
 
-.tab-pane
-{
-    -fx-tab-min-width:90px;
+.tab-pane {
+    -fx-tab-min-width: 90px;
 }
 
-.tab{
-    -fx-background-insets: 0 1 0 1,0,0;
-
-}
-.tab-pane .tab
-{
-    -fx-background-color: RGB(70,70,70);
+.tab {
+    -fx-background-insets: 0 1 0 1, 0, 0;
 
 }
 
-.tab-pane .tab:selected
-{
-    -fx-background-color: RGB(50,50,50);
+.tab-pane .tab {
+    -fx-background-color: RGB(70, 70, 70);
+
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: RGB(50, 50, 50);
     -fx-border-color: #32a700;
 }
 
@@ -165,18 +192,20 @@
     -fx-alignment: CENTER;
     -fx-text-fill: GOLD;
 }
+
 .tab-pane:top *.tab-header-area {
     -fx-background-insets: 0, 0 0 1 0;
     /* -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; /* 5 2 0 10 */
     -fx-padding: 0.416667em 0.166667em 0.0em 0.0em; /* overridden as 5 2 0 0 */
 }
 
-.toggle-button{
-    -fx-background-color: RGB(50,50,50);
+.toggle-button {
+    -fx-background-color: RGB(50, 50, 50);
     -fx-border-color: #32a700;
     -fx-text-fill: GOLD;
 }
-.toggle-button:selected{
+
+.toggle-button:selected {
     -fx-background-color: #32a700;
     -fx-text-fill: white;
 }

@@ -1,4 +1,4 @@
-.mainButton{
+.mainButton {
     -fx-font-family: "Noto Serif";
     -fx-font-size: 25px;
     -fx-pref-width: 300px;
@@ -13,18 +13,21 @@
     -fx-wrap-text: true;
     -fx-text-alignment: center;
     -fx-border-color: #32a700;
-    -fx-background-color: RGB(50,50,50);
+    -fx-background-color: RGB(50, 50, 50);
     -fx-border-style: dotted;
     -fx-opacity: 85%;
 }
-.mainButton:hover{
-    -fx-background-color: RGB(70,70,70);
+
+.mainButton:hover {
+    -fx-background-color: RGB(70, 70, 70);
     -fx-font-size: 28px;
 }
+
 .menuBackground {
     -fx-background-color: RGB(50, 50, 50);
     -fx-opacity: 85%;
 }
-#imageBackground{
+
+#imageBackground {
     -fx-background-image: url("../img/menu-image.jpg");
 }

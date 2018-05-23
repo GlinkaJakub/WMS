@@ -31,19 +31,31 @@ public class MenuController {
         }
     }
 
-    public void loadDeliverScreen(){
+    public void loadDeliverScreen() {
         mainController.loadDeliverScreen();
     }
 
-    public void loadAvailabilityScreen(){
+    public void loadAvailabilityScreen() {
         mainController.loadAvailabilityScreen();
     }
 
-    public void loadCreateScreen(){mainController.loadCreateScreen();}
+    public void loadCreateScreen() {
+        mainController.loadCreateScreen();
+    }
 
-    public void loadEditScreen(){mainController.loadEditScreen();}
+    public void loadEditScreen() {
+        mainController.loadEditScreen();
+    }
 
-    public void exit(){
+    public void loadChangeScreen(){
+        mainController.loadChangeScreen();
+    }
+
+    public void loadInfoScreen(){
+        mainController.loadInfoScreen();
+    }
+
+    public void exit() {
         Platform.exit();
     }
 

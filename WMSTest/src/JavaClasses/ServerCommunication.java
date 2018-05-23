@@ -17,32 +17,32 @@ public class ServerCommunication {
     private String password;
 
 
-    public ServerCommunication(){
+    public ServerCommunication() {
 
     }
 
     public String ConnectToTheServer() throws ClassNotFoundException, SQLException, IllegalAccessException, InstantiationException {
 
-        String databaseURL = "jdbc:sqlserver://"+
-                host+"\\MSSQLSERVER:"+
-                port+";databaseName="+
+        String databaseURL = "jdbc:sqlserver://" +
+                host + "\\MSSQLSERVER:" +
+                port + ";databaseName=" +
                 database;
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
 
-        connection = DriverManager.getConnection(databaseURL,user,password);
+        connection = DriverManager.getConnection(databaseURL, user, password);
         statement = connection.createStatement();
         return "Success";
     }
 
     public void closeConnection() throws SQLException {
 
-            connection.close();
+        connection.close();
     }
 
     public List<Product> getProduct(String id) throws SQLException {
         List<Product> productList = new ArrayList<>();
         ResultSet rs = statement.executeQuery("EXEC getProductLike '" + id + "' ");
-        while(rs.next()) {
+        while (rs.next()) {
             Product product = new Product();
             product.setId(rs.getString("id_product"));
             product.setName(rs.getString("name"));
@@ -56,10 +56,11 @@ public class ServerCommunication {
         }
         return productList;
     }
+
     public List<Provider> getProvider(String id) throws SQLException {
         List<Provider> providerList = new ArrayList<>();
         ResultSet rs = statement.executeQuery("EXEC getProviderLike '" + id + "' ");
-        while(rs.next()) {
+        while (rs.next()) {
             Provider provider = new Provider();
             provider.setName(rs.getString("name"));
             provider.setNip(rs.getString("nip"));
@@ -77,7 +78,7 @@ public class ServerCommunication {
     public List<Client> getClient(String id) throws SQLException {
         List<Client> clientList = new ArrayList<>();
         ResultSet rs = statement.executeQuery("EXEC getClientLike '" + id + "' ");
-        while(rs.next()){
+        while (rs.next()) {
             Client client = new Client();
             client.setName(rs.getString("name"));
             client.setNip(rs.getString("nip"));
@@ -96,28 +97,28 @@ public class ServerCommunication {
     public void addProduct(Product product) throws SQLException {
         statement.executeQuery("EXEC AddProduct '" + product.getName() +
                 "', '" + product.getGroup() + "', '" + product.getMaker() +
-                "', " + product.getWidth()+ ", " + product.getHeight()+
-                ", " + product.getLength()+ ", " + product.getWeight() + " ");
+                "', " + product.getWidth() + ", " + product.getHeight() +
+                ", " + product.getLength() + ", " + product.getWeight() + " ");
     }
 
     public void addGroup(ProductGroup productGroup) throws SQLException {
-        statement.executeQuery("EXEC AddGroup '" + productGroup.getName() +"' ");
+        statement.executeQuery("EXEC AddGroup '" + productGroup.getName() + "' ");
     }
 
     public void addProvider(Provider provider) throws SQLException {
-        statement.executeQuery("EXEC AddProvider '"+ provider.getName() +
+        statement.executeQuery("EXEC AddProvider '" + provider.getName() +
                 "', '" + provider.getNip() + "', '" + provider.getCity() +
-                "', '" + provider.getPostCode() + "', '" + provider.getStreet()+
-                "', '" + provider.getBuildingNumber()+ "', '" + provider.getPhone() +
+                "', '" + provider.getPostCode() + "', '" + provider.getStreet() +
+                "', '" + provider.getBuildingNumber() + "', '" + provider.getPhone() +
                 "', '" + provider.getEmail() + "' "
-                );
+        );
     }
 
     public void addClient(Client client) throws SQLException {
-        statement.executeQuery("EXEC AddClient '"+ client.getName() +
+        statement.executeQuery("EXEC AddClient '" + client.getName() +
                 "', '" + client.getNip() + "', '" + client.getCity() +
-                "', '" + client.getPostCode() + "', '" + client.getStreet()+
-                "', '" + client.getBuildingNumber()+ "', '" + client.getPhone() +
+                "', '" + client.getPostCode() + "', '" + client.getStreet() +
+                "', '" + client.getBuildingNumber() + "', '" + client.getPhone() +
                 "', '" + client.getEmail() + "' "
         );
     }
@@ -151,10 +152,10 @@ public class ServerCommunication {
 
     }
 
-    public List<ProductCard> getProductCard( String id) throws SQLException {
+    public List<ProductCard> getProductCard(String id) throws SQLException {
         List<ProductCard> productCardList = new ArrayList<>();
         ResultSet rs = statement.executeQuery("EXEC getProductCard '" + id + "' ");
-        while(rs.next()) {
+        while (rs.next()) {
             ProductCard productCard = new ProductCard();
             productCard.setId(rs.getString("id_product"));
             productCard.setName(rs.getString("name"));
@@ -171,7 +172,7 @@ public class ServerCommunication {
     public List<Sector> getSectors() throws SQLException {
         List<Sector> sectors = new ArrayList<>();
         ResultSet rs = statement.executeQuery("EXEC getSectors");
-        while(rs.next()) {
+        while (rs.next()) {
             Sector sector = new Sector();
             sector.setId(rs.getString("id_sector"));
             sector.setRemainingSpace(rs.getInt("remainingspace"));

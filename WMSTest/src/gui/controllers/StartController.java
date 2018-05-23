@@ -38,15 +38,15 @@ public class StartController {
     private Management management;
 
     @FXML
-    void initialize(){
+    void initialize() {
         management = Management.getInstance();
     }
 
     public void connectToTheServer() throws IOException {
 
-        String com = management.ConnectToTheServer(databaseField.getText(),hostField.getText(),portField.getText(),userField.getText(),passwordField.getText());
+        String com = management.ConnectToTheServer(databaseField.getText(), hostField.getText(), portField.getText(), userField.getText(), passwordField.getText());
 
-        if(com.equals("Success")) {
+        if (com.equals("Success")) {
 
             Stage previousStage = (Stage) alert.getScene().getWindow();
             previousStage.close();
@@ -58,11 +58,11 @@ public class StartController {
             currentStage.setScene(scene);
             currentStage.setTitle("WMS");
             currentStage.show();
-        }else {
+        } else {
             alert.setTextFill(Color.RED);
             alert.setText(com);
         }
 
-   }
+    }
 
 }

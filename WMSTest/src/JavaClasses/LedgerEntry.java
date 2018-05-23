@@ -10,8 +10,6 @@ public class LedgerEntry {
     private String contractorId;
 
 
-
-
     public Date getDate() {
         return date;
     }

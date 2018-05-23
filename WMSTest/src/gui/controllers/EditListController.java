@@ -22,6 +22,4 @@ public class EditListController {
     private TextField lenghtTextField;
 
 
-
-
 }

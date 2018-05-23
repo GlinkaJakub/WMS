@@ -7,8 +7,8 @@ public class Sector {
     private int space;
 
     @Override
-    public String toString(){
-        return "#"+id;
+    public String toString() {
+        return "#" + id;
     }
 
     public String getId() {

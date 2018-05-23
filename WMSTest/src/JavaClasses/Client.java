@@ -1,4 +1,4 @@
 package JavaClasses;
 
-public class Client extends Contractor{
+public class Client extends Contractor {
 }
