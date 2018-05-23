@@ -153,7 +153,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </Button>
-                              <Button layoutX="62.0" mnemonicParsing="false" text="Remove from list" AnchorPane.rightAnchor="10.0" HBox.hgrow="ALWAYS">
+                              <Button layoutX="62.0" mnemonicParsing="false" onAction="#removeProduct" text="Remove from list" AnchorPane.rightAnchor="10.0" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>

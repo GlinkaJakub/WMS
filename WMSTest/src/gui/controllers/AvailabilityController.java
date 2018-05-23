@@ -8,7 +8,7 @@ public class AvailabilityController {
         this.mainController = mainController;
     }
 
-    public void back(){
+    public void back() {
         mainController.loadMenuScreen();
     }
 }

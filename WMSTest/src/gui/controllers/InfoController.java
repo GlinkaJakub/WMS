@@ -1,13 +1,15 @@
 package gui.controllers;
 
-public class ShipmentController {
+public class InfoController {
+
     private MainController mainController;
 
-    public void setMainController(MainController mainController) {
+    public void setMainController(MainController mainController){
         this.mainController = mainController;
     }
 
-    public void cancel() {
+    public void back(){
         mainController.loadMenuScreen();
     }
+
 }

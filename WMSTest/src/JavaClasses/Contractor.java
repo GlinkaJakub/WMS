@@ -11,7 +11,7 @@ public class Contractor {
     private String email;
 
     @Override
-    public String toString(){
+    public String toString() {
         return name + ", NIP: " + nip;
     }
 

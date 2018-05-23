@@ -16,7 +16,8 @@ public class GUI extends Application {
         primaryStage.setResizable(true);
         primaryStage.show();
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         launch(args);
     }
 }

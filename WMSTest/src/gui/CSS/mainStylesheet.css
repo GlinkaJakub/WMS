@@ -1,8 +1,8 @@
-.menu-bar{
-    -fx-background-color: RGB(50,50,50);
+.menu-bar {
+    -fx-background-color: RGB(50, 50, 50);
 }
 
-.menu-bar .label{
+.menu-bar .label {
     -fx-text-fill: GOLD;
 }
 

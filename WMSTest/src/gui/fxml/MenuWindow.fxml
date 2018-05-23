@@ -29,7 +29,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" />
                            </padding>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Change place of product" textAlignment="CENTER" textFill="GOLD">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loadChangeScreen" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Change place of product" textAlignment="CENTER" textFill="GOLD">
                            <font>
                               <Font name="GilliusADF-BoldCond" size="25.0" />
                            </font>
@@ -57,7 +57,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" />
                            </padding>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Show info about" textAlignment="CENTER" textFill="GOLD">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loadInfoScreen" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="Show info about" textAlignment="CENTER" textFill="GOLD">
                            <font>
                               <Font name="GilliusADF-BoldCond" size="25.0" />
                            </font>

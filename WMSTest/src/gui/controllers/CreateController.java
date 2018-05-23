@@ -51,85 +51,85 @@ public class CreateController {
     @FXML
     private TextField productGroup;
 
-     @FXML
+    @FXML
     private TextField productMaker;
 
-     @FXML
+    @FXML
     private TextField widthProduct;
 
-     @FXML
+    @FXML
     private TextField lengthProduct;
 
-     @FXML
+    @FXML
     private TextField heightProduct;
 
-     @FXML
+    @FXML
     private TextField weightProduct;
 
-     @FXML
+    @FXML
     private TextField groupName;
 
-     @FXML
+    @FXML
     private TextField contractorName;
 
-     @FXML
+    @FXML
     private TextField nip;
 
     @FXML
     private TextField phone;
 
-     @FXML
+    @FXML
     private TextField email;
 
-     @FXML
+    @FXML
     private TextField street;
 
-     @FXML
+    @FXML
     private TextField numOfBuilding;
 
-     @FXML
-     private TextField postcode;
+    @FXML
+    private TextField postcode;
 
-     @FXML
-     private TextField city;
+    @FXML
+    private TextField city;
 
-     @FXML
-     private CheckBox isProvider;
+    @FXML
+    private CheckBox isProvider;
 
-     @FXML
-     private CheckBox isClient;
+    @FXML
+    private CheckBox isClient;
 
-     private Management management;
+    private Management management;
 
 
-     public void initialize(){
-         management = Management.getInstance();
-         isProvider.setSelected(true);
-         isClient.selectedProperty().addListener(((observable, oldValue, newValue) -> {
-             if(newValue)
-                 isProvider.setSelected(false);
-             else
-                 isProvider.setSelected(true);
-         }));
+    public void initialize() {
+        management = Management.getInstance();
+        isProvider.setSelected(true);
+        isClient.selectedProperty().addListener(((observable, oldValue, newValue) -> {
+            if (newValue)
+                isProvider.setSelected(false);
+            else
+                isProvider.setSelected(true);
+        }));
 
-         isProvider.selectedProperty().addListener((observable, oldValue, newValue) -> {
-             if(newValue)
-                 isClient.setSelected(false);
-             else
-                 isClient.setSelected(true);
-         });
+        isProvider.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue)
+                isClient.setSelected(false);
+            else
+                isClient.setSelected(true);
+        });
 
-         ListProperty<Sector> listProperty = new SimpleListProperty<>();
-         listProperty.set(sectorList);
-         sectorListView.itemsProperty().bindBidirectional(listProperty);
-         sectorList.addAll(management.getSectors());
-     }
+        ListProperty<Sector> listProperty = new SimpleListProperty<>();
+        listProperty.set(sectorList);
+        sectorListView.itemsProperty().bindBidirectional(listProperty);
+        sectorList.addAll(management.getSectors());
+    }
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-    public void createProduct(){
+    public void createProduct() {
         Product product = new Product();
         product.setName(productName.getText());
         product.setGroup(productGroup.getText());
@@ -149,16 +149,16 @@ public class CreateController {
 
     }
 
-    public void createGroup(){
+    public void createGroup() {
         ProductGroup productGroup = new ProductGroup();
         productGroup.setName(groupName.getText());
         management.addGroup(productGroup);
         groupName.setText("");
     }
 
-    public void createContractor(){
+    public void createContractor() {
         Contractor contractor;
-        if(isClient.isSelected())
+        if (isClient.isSelected())
             contractor = new Client();
         else
             contractor = new Provider();
@@ -183,29 +183,29 @@ public class CreateController {
         city.setText("");
     }
 
-    public void back(){
+    public void back() {
         mainController.loadMenuScreen();
     }
 
     public void addSector() {
-         sectorList.clear();
-         management.addSector();
-         sectorList.addAll(management.getSectors());
+        sectorList.clear();
+        management.addSector();
+        sectorList.addAll(management.getSectors());
     }
 
     public void addRack() {
-         management.addRack(rackTypeTexField.getText());
+        management.addRack(rackTypeTexField.getText());
     }
 
     public void addRackType() {
 
-         RackType rackType = new RackType();
-         rackType.setWidth(Integer.parseInt(widthRackType.getText()));
-         rackType.setHeight(Integer.parseInt(heightRackType.getText()));
-         rackType.setLength(Integer.parseInt(lengthRackType.getText()));
-         rackType.setShelfNumber(Integer.parseInt(numShelvesRackType.getText()));
-         rackType.setSpace(Integer.parseInt(spaceRackType.getText()));
+        RackType rackType = new RackType();
+        rackType.setWidth(Integer.parseInt(widthRackType.getText()));
+        rackType.setHeight(Integer.parseInt(heightRackType.getText()));
+        rackType.setLength(Integer.parseInt(lengthRackType.getText()));
+        rackType.setShelfNumber(Integer.parseInt(numShelvesRackType.getText()));
+        rackType.setSpace(Integer.parseInt(spaceRackType.getText()));
 
-         management.addRackType(rackType);
+        management.addRackType(rackType);
     }
 }
