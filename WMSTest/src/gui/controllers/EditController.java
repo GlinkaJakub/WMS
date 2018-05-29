@@ -144,7 +144,7 @@ public class EditController {
                     " " + contractor.getPostCode() + " " + contractor.getCity());
         } else {
             ProductCard productCard = (ProductCard) object;
-            label1.setText(productCard.getId());
+            label1.setText(String.valueOf(productCard.getId()));
             label2.setText(productCard.getName());
             label3.setText(productCard.getPlaceId());
             label4.setText("");

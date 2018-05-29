@@ -1,7 +1,7 @@
 package JavaClasses;
 
 public class RackType {
-    private String id;
+    private int id;
     private int width;
     private int height;
     private int length;
@@ -9,11 +9,16 @@ public class RackType {
     private int space;
     private int archive;
 
-    public String getId() {
+    @Override
+    public String toString(){
+        return "id: " + id + ", space: " + space + ", param: " + width + "x" + length;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

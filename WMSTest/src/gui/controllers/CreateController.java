@@ -10,6 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+
+import java.util.List;
 
 
 public class CreateController {
@@ -41,9 +44,19 @@ public class CreateController {
     @FXML
     public ListView<Sector> sectorListView;
 
+    @FXML
+    public ListView<RackType> rackTypeListView;
+
+    private ObservableList<RackType> rackTypeList = FXCollections.observableArrayList();
+
     private ObservableList<Sector> sectorList = FXCollections.observableArrayList();
 
     private MainController mainController;
+
+    @FXML
+    public ListView<Rack> rackListView;
+
+    private ObservableList<Rack> rackList = FXCollections.observableArrayList();
 
     @FXML
     private TextField productName;
@@ -123,6 +136,15 @@ public class CreateController {
         listProperty.set(sectorList);
         sectorListView.itemsProperty().bindBidirectional(listProperty);
         sectorList.addAll(management.getSectors());
+
+        ListProperty<Rack> racks = new SimpleListProperty<>();
+        racks.set(rackList);
+        rackListView.itemsProperty().bindBidirectional(racks);
+
+        ListProperty<RackType> rackTypes = new SimpleListProperty<>();
+        rackTypes.set(rackTypeList);
+        rackTypeListView.itemsProperty().bindBidirectional(rackTypes);
+        rackTypeList.addAll(management.getRackType());
     }
 
     public void setMainController(MainController mainController) {
@@ -194,7 +216,8 @@ public class CreateController {
     }
 
     public void addRack() {
-        management.addRack(rackTypeTexField.getText());
+        management.addRack(sectorListView.getSelectionModel().getSelectedItem().toString(), rackTypeTexField.getText());
+        showRacks();
     }
 
     public void addRackType() {
@@ -207,5 +230,16 @@ public class CreateController {
         rackType.setSpace(Integer.parseInt(spaceRackType.getText()));
 
         management.addRackType(rackType);
+        rackTypeList.clear();
+        rackTypeList.addAll(management.getRackType());
+    }
+
+    public void setRackType() {
+        rackTypeTexField.setText(String.valueOf(rackTypeListView.getSelectionModel().getSelectedItem().getId()));
+    }
+
+    public void showRacks() {
+        rackList.clear();
+        rackList.addAll(management.getRack(sectorListView.getSelectionModel().getSelectedItem()));
     }
 }

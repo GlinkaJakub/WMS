@@ -1,5 +1,6 @@
 package JavaClasses;
 
+import javafx.beans.property.ListProperty;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
@@ -58,6 +59,16 @@ public class Management {
         return productList;
     }
 
+    public List<ProductCard> getProductCards(String id) {
+        List<ProductCard> productCards = new ArrayList<>();
+        try{
+            productCards = serverCommunication.getProductCard(id);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return productCards;
+    }
+
     public List<Provider> getProvider(String id) {
 
         List<Provider> providerList = new ArrayList<>();
@@ -105,14 +116,13 @@ public class Management {
     }
 
 
-    public void realizeDeliver(ObservableList<Product> productsToDeliver, List<Integer> quantityProducts, Contractor finalContractor) {
+    public void realizeDeliver(List<Product> productsToDeliver, List<Integer> quantityProducts, Contractor finalContractor) {
 
         for (int i = 0; i < productsToDeliver.size(); i++) {
             try {
                 for (int j = 0; j < quantityProducts.get(i); j++)
                     serverCommunication.putOnShelf(productsToDeliver.get(i), finalContractor);
             } catch (SQLException e) {
-                e.printStackTrace();
             }
         }
     }
@@ -128,15 +138,21 @@ public class Management {
         try {
             serverCommunication.addSector();
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
-    public void addRack(String text) {
+    public void addRack(String sectorId, String rackType) {
+        try {
+            serverCommunication.addRack(Integer.valueOf(sectorId), Integer.valueOf(rackType));
+        }catch (SQLException e){
+        }
     }
 
     public void addRackType(RackType rackType) {
-
+        try{
+            serverCommunication.addRackType(rackType);
+        }catch(SQLException e){
+        }
     }
 
     public List<ProductCard> getProductCard(String id) {
@@ -144,7 +160,6 @@ public class Management {
         try {
             productCards = serverCommunication.getProductCard(id);
         } catch (SQLException e) {
-            e.printStackTrace();
         }
         return productCards;
     }
@@ -156,5 +171,27 @@ public class Management {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<Rack> getRack(Sector sector) {
+        List<Rack> racks = new ArrayList<>();
+        if(sector == null)
+            return null;
+        try{
+            racks = serverCommunication.getRack(Integer.valueOf(sector.getId()));
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return racks;
+    }
+
+    public List<RackType> getRackType() {
+        List<RackType> rackTypes = new ArrayList<>();
+        try{
+            rackTypes = serverCommunication.getRackTypes();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return rackTypes;
     }
 }
