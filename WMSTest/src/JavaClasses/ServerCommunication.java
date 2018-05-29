@@ -1,5 +1,7 @@
 package JavaClasses;
 
+import javafx.beans.property.ListProperty;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +59,20 @@ public class ServerCommunication {
         return productList;
     }
 
+    public List<ProductCard> getProductCard(String id) throws SQLException{
+        List<ProductCard> productCards = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getProductCard '" + id + "' ");
+        while(rs.next()){
+            ProductCard productCard = new ProductCard();
+            productCard.setId(rs.getInt("id_card"));
+            productCard.setProductId(rs.getInt("id_product"));
+            productCard.setName(rs.getString("name"));
+            productCard.setPlaceId(rs.getString("placement"));
+            productCards.add(productCard);
+        }
+        return productCards;
+    }
+
     public List<Provider> getProvider(String id) throws SQLException {
         List<Provider> providerList = new ArrayList<>();
         ResultSet rs = statement.executeQuery("EXEC getProviderLike '" + id + "' ");
@@ -92,6 +108,21 @@ public class ServerCommunication {
         }
         return clientList;
     }
+    public List<Rack> getRack(int sectorId) throws SQLException{
+        List<Rack> racks = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getRack " + sectorId + " ");
+        while (rs.next()){
+            Rack rack = new Rack();
+            rack.setId(rs.getInt("id_rack"));
+            rack.setSectorId(rs.getInt("id_sector"));
+            rack.setRackTypeId(rs.getInt("id_racktype"));
+            rack.setRemainingSpace(rs.getInt("remainingspace"));
+            rack.setTotalSpace(rs.getInt("totalspace"));
+            racks.add(rack);
+        }
+        return racks;
+    }
+
 
 
     public void addProduct(Product product) throws SQLException {
@@ -145,24 +176,12 @@ public class ServerCommunication {
     }
 
     public void putOnShelf(Product product, Contractor finalContractor) throws SQLException {
-        statement.executeQuery("EXEC PutOnShelf '" + product.getId() + "'");
+        ResultSet rs = statement.executeQuery("EXEC PutOnShelf " + product.getId() + " ");
+        //statement.executeQuery("EXEC addLedgerEntry " + product.getId() + " '" + finalContractor.getNip() + "'" + " 1 " + " " + rs.getInt(0));
     }
 
     public void getProductsOut(Product product, Contractor finalContractor) {
 
-    }
-
-    public List<ProductCard> getProductCard(String id) throws SQLException {
-        List<ProductCard> productCardList = new ArrayList<>();
-        ResultSet rs = statement.executeQuery("EXEC getProductCard '" + id + "' ");
-        while (rs.next()) {
-            ProductCard productCard = new ProductCard();
-            productCard.setId(rs.getString("id_product"));
-            productCard.setName(rs.getString("name"));
-            productCard.setPlaceId(rs.getString("placement"));
-            productCardList.add(productCard);
-        }
-        return productCardList;
     }
 
     public void addSector() throws SQLException {
@@ -180,5 +199,29 @@ public class ServerCommunication {
             sectors.add(sector);
         }
         return sectors;
+    }
+
+    public void addRackType(RackType rackType) throws SQLException {
+        ResultSet rs = statement.executeQuery("EXEC addRackType " + rackType.getWidth() + ", " + rackType.getLength()+
+            ", " + rackType.getShelfNumber() + ", " + rackType.getSpace() + " ");
+    }
+
+    public void addRack(Integer sectorId, Integer rackType) throws SQLException {
+        ResultSet rs = statement.executeQuery("EXEC addRack " + sectorId + ", " + rackType + " ");
+    }
+
+    public List<RackType> getRackTypes() throws SQLException {
+        List<RackType> rackTypes = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getRackType ");
+        while(rs.next()){
+            RackType rackType = new RackType();
+            rackType.setId(rs.getInt("id_racktype"));
+            rackType.setWidth(rs.getInt("width"));
+            rackType.setLength(rs.getInt("length"));
+            rackType.setShelfNumber(rs.getInt("shelfNumber"));
+            rackType.setSpace(rs.getInt("space"));
+            rackTypes.add(rackType);
+        }
+        return rackTypes;
     }
 }

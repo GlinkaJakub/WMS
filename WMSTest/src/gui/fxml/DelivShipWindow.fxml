@@ -257,7 +257,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="824.0" layoutY="-4.0" mnemonicParsing="false" text="Realize">
+                  <Button layoutX="824.0" layoutY="-4.0" mnemonicParsing="false" text="Realize" onAction="#realize">
                      <font>
                         <Font size="20.0" />
                      </font>

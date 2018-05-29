@@ -2,7 +2,8 @@ package JavaClasses;
 
 public class ProductCard {
 
-    private String id;
+    private int id;
+    private int productId;
     private String placeId;
     private String name;
 
@@ -14,11 +15,11 @@ public class ProductCard {
         this.name = name;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -30,4 +31,15 @@ public class ProductCard {
         this.placeId = placeId;
     }
 
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+    @Override
+    public String toString(){
+        return name + "#" + id + " " + placeId;
+    }
 }
