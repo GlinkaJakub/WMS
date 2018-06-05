@@ -1,6 +1,5 @@
 package JavaClasses;
 
-import javafx.beans.property.ListProperty;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
@@ -129,8 +128,16 @@ public class Management {
 
     public void realizeShipment(ObservableList<Product> productsToDeliver, List<Integer> quantityProducts, Contractor finalContractor) {
         for (int i = 0; i < productsToDeliver.size(); i++) {
-            for (int j = 0; j < quantityProducts.get(i); j++)
-                serverCommunication.getProductsOut(productsToDeliver.get(i), finalContractor);
+            for (int j = 0; j < quantityProducts.get(i); j++) {
+                getProductOut(productsToDeliver.get(i), finalContractor);
+            }
+        }
+    }
+
+    public void getProductOut(Product productsToRemove, Contractor finalContractor) {
+        try {
+            serverCommunication.getProductsOut(productsToRemove, finalContractor);
+        } catch (SQLException e) {
         }
     }
 
@@ -193,5 +200,69 @@ public class Management {
             e.printStackTrace();
         }
         return rackTypes;
+    }
+
+    public void update(Provider provider) {
+        try {
+            serverCommunication.update(provider);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void update(ProductCard productCard) {
+        try {
+            serverCommunication.update(productCard);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void update(Product product) {
+        try {
+            serverCommunication.update(product);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void update(Client client) {
+        try {
+            serverCommunication.update(client);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void remove(Provider provider) {
+        try {
+            serverCommunication.remove(provider);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void remove(Client client) {
+        try {
+            serverCommunication.remove(client);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void remove(Product product) {
+        try {
+            serverCommunication.remove(product);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void remove(ProductCard productCard) {
+        try {
+            serverCommunication.remove(productCard);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -138,6 +138,11 @@ public class DelivShipController {
             getProduct(newValue);
         });
 
+        contractorLabel.textProperty().addListener(((observable, oldValue, newValue) -> {
+            identifyContractorTextField.setText("");
+            getContractor("");
+        }));
+
         getContractor(identifyContractorTextField.getText());
         identifyContractorTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
 
@@ -154,10 +159,12 @@ public class DelivShipController {
     }
 
     private void getContractor(String newValue) {
-        if (isDeliver.isSelected())
+        searchingListContractor.clear();
+        if (isDeliver.isSelected()) {
             getProvider(newValue);
-        else
+        } else {
             getClient(newValue);
+        }
     }
 
     private void getProvider(String id) {
@@ -236,6 +243,10 @@ public class DelivShipController {
             management.realizeDeliver(productsToDeliver, quantityProducts, finalContractor);
         else
             management.realizeShipment(productsToDeliver, quantityProducts, finalContractor);
+        productListView.getSelectionModel().clearSelection();
+        providerListView.getSelectionModel().clearSelection();
+        contractorLabel.setText("");
+        productsToDeliver.clear();
     }
 
     public void removeProduct(){

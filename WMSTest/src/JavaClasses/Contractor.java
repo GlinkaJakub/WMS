@@ -10,6 +10,21 @@ public class Contractor {
     private String city;
     private String email;
 
+    public Contractor(String name, String nip, String phone, String street, String buildingNumber, String postCode, String city, String email) {
+        this.name = name;
+        this.nip = nip;
+        this.phone = phone;
+        this.street = street;
+        this.buildingNumber = buildingNumber;
+        this.postCode = postCode;
+        this.city = city;
+        this.email = email;
+    }
+
+    public Contractor() {
+
+    }
+
     @Override
     public String toString() {
         return name + ", NIP: " + nip;

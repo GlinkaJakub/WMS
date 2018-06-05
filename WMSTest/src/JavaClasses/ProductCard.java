@@ -7,6 +7,16 @@ public class ProductCard {
     private String placeId;
     private String name;
 
+    public ProductCard(int id, int productId, String placeId, String name) {
+        this.id = id;
+        this.productId = productId;
+        this.placeId = placeId;
+        this.name = name;
+    }
+
+    public ProductCard() {
+    }
+
     public String getName() {
         return name;
     }

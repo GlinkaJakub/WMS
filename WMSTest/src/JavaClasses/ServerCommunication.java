@@ -1,7 +1,5 @@
 package JavaClasses;
 
-import javafx.beans.property.ListProperty;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +11,7 @@ public class ServerCommunication {
     private String host;
     private String port;
     private String database;
-
+    private int updateId;
 
     private String user;
     private String password;
@@ -126,10 +124,12 @@ public class ServerCommunication {
 
 
     public void addProduct(Product product) throws SQLException {
-        statement.executeQuery("EXEC AddProduct '" + product.getName() +
+        ResultSet rs = statement.executeQuery("EXEC AddProduct '" + product.getName() +
                 "', '" + product.getGroup() + "', '" + product.getMaker() +
                 "', " + product.getWidth() + ", " + product.getHeight() +
                 ", " + product.getLength() + ", " + product.getWeight() + " ");
+        rs.next();
+        updateId = rs.getInt(1);
     }
 
     public void addGroup(ProductGroup productGroup) throws SQLException {
@@ -137,21 +137,25 @@ public class ServerCommunication {
     }
 
     public void addProvider(Provider provider) throws SQLException {
-        statement.executeQuery("EXEC AddProvider '" + provider.getName() +
+        ResultSet rs = statement.executeQuery("EXEC AddProvider '" + provider.getName() +
                 "', '" + provider.getNip() + "', '" + provider.getCity() +
                 "', '" + provider.getPostCode() + "', '" + provider.getStreet() +
                 "', '" + provider.getBuildingNumber() + "', '" + provider.getPhone() +
                 "', '" + provider.getEmail() + "' "
         );
+        rs.next();
+        updateId = rs.getInt(1);
     }
 
     public void addClient(Client client) throws SQLException {
-        statement.executeQuery("EXEC AddClient '" + client.getName() +
+        ResultSet rs = statement.executeQuery("EXEC AddClient '" + client.getName() +
                 "', '" + client.getNip() + "', '" + client.getCity() +
                 "', '" + client.getPostCode() + "', '" + client.getStreet() +
                 "', '" + client.getBuildingNumber() + "', '" + client.getPhone() +
                 "', '" + client.getEmail() + "' "
         );
+        rs.next();
+        updateId = rs.getInt(1);
     }
 
 
@@ -180,8 +184,8 @@ public class ServerCommunication {
         //statement.executeQuery("EXEC addLedgerEntry " + product.getId() + " '" + finalContractor.getNip() + "'" + " 1 " + " " + rs.getInt(0));
     }
 
-    public void getProductsOut(Product product, Contractor finalContractor) {
-
+    public void getProductsOut(Product product, Contractor finalContractor) throws SQLException {
+        statement.executeQuery(("EXEC getProductOut " + product.getId() + " "));
     }
 
     public void addSector() throws SQLException {
@@ -223,5 +227,64 @@ public class ServerCommunication {
             rackTypes.add(rackType);
         }
         return rackTypes;
+    }
+
+    public void update(Provider provider) throws SQLException {
+        List<Provider> providerList = getProvider(provider.getNip());
+        for (Provider prov : providerList)
+            if (provider.getNip().equals(prov.getNip())) {
+                addProvider(provider);
+                ResultSet rs = statement.executeQuery("Exec ArchiveProvider " + provider.getNip() + ", " + updateId);
+            }
+    }
+
+    public void update(ProductCard productCard) throws SQLException {
+        List<ProductCard> productCards = getProductCard(String.valueOf(productCard.getId()));
+        for (ProductCard pc : productCards)
+            if (productCard.getId() == pc.getId()) {
+                addProductCard(productCard);
+                ResultSet rs = statement.executeQuery("Exec ArchiveProductCard " + pc.getId() + ", " + updateId);
+            }
+    }
+
+    private void addProductCard(ProductCard productCard) throws SQLException {
+        ResultSet rs = statement.executeQuery("EXEC addProductCard " + productCard.getProductId() + ", " + productCard.getPlaceId() + " ");
+        rs.next();
+        updateId = rs.getInt(1);
+    }
+
+    public void update(Product product) throws SQLException {
+        List<Product> products = getProduct(product.getId());
+        for (Product p : products)
+            if (product.getId().equals(p.getId())) {
+                addProduct(product);
+                System.out.println(updateId);
+                ResultSet rs = statement.executeQuery("Exec ArchiveProduct " + product.getId() + ", " + updateId);
+            }
+    }
+
+    public void update(Client client) throws SQLException {
+        List<Client> clientList = getClient(client.getNip());
+        for (Client c : clientList)
+            if (client.getNip().equals(c.getNip())) {
+                addClient(client);
+                ResultSet rs = statement.executeQuery("Exec ArchiveClient " + client.getNip() + ", " + updateId);
+            }
+    }
+
+    public void remove(Provider provider) throws SQLException {
+        statement.executeQuery(("EXEC ArchiveProvider " + provider.getNip() + ", " + updateId));
+    }
+
+    public void remove(Client client) throws SQLException {
+        statement.executeQuery(("EXEC ArchiveClient " + client.getNip() + ", " + updateId));
+    }
+
+    public void remove(Product product) throws SQLException {
+        statement.executeQuery(("EXEC ArchiveProduct " + product.getId() + ", " + updateId));
+    }
+
+    public void remove(ProductCard productCard) throws SQLException {
+        statement.executeQuery(("EXEC ArchiveProductCard " + productCard.getId() + ", " + updateId));
     }
 }
