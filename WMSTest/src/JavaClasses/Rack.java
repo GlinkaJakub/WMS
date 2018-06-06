@@ -1,22 +1,29 @@
 package JavaClasses;
 
 public class Rack {
-    private int id;
+    private String id;
     private int sectorId;
     private int rackTypeId;
     private int remainingSpace;
     private int totalSpace;
+
+    public Rack() {
+    }
+
+    public Rack(String id) {
+        this.id = id;
+    }
 
     @Override
     public String toString(){
         return "ID: " + id + ", Rack Type ID:" + rackTypeId;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

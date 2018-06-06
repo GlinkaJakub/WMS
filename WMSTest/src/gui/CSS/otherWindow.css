@@ -127,6 +127,23 @@
     -fx-text-fill: white;
 }
 
+.choice-box .context-menu {
+    -fx-background-color: linear-gradient(to right, rgb(50, 50, 50), #76e944);
+}
+
+.choice-box .menu-item:focused {
+    -fx-background-color: linear-gradient(to right, rgb(60, 60, 60), #87fa55);
+    -fx-border-color: BLACK
+}
+
+.choice-box .menu-item > .label {
+    -fx-text-fill: GOLD;
+}
+
+.choice-box .menu-item:focused > .label {
+    -fx-text-fill: GOLD;
+}
+
 .bigButton {
     -fx-pref-width: 200;
     -fx-pref-height: 100;

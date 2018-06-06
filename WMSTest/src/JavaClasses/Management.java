@@ -19,15 +19,14 @@ public class Management {
 
     private ServerCommunication serverCommunication = new ServerCommunication();
 
-    public String ConnectToTheServer(String database, String host, String port, String user, String password) {
+    public String connectToTheServer(String database, String host, String port, String user, String password) {
         serverCommunication.setDatabase(database);
         serverCommunication.setHost(host);
         serverCommunication.setPort(port);
         serverCommunication.setUser(user);
         serverCommunication.setPassword(password);
         try {
-            String result = serverCommunication.ConnectToTheServer();
-            return result;
+            return serverCommunication.ConnectToTheServer();
         } catch (ClassNotFoundException e) {
             return "Problem with driver: " + e.toString();
         } catch (SQLException e) {
@@ -56,16 +55,6 @@ public class Management {
             e.printStackTrace();
         }
         return productList;
-    }
-
-    public List<ProductCard> getProductCards(String id) {
-        List<ProductCard> productCards = new ArrayList<>();
-        try{
-            productCards = serverCommunication.getProductCard(id);
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return productCards;
     }
 
     public List<Provider> getProvider(String id) {
@@ -264,5 +253,41 @@ public class Management {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Shelf> getShelves(Rack rack) {
+        List<Shelf> shelfList = new ArrayList<>();
+        try {
+            shelfList = serverCommunication.getShelves(rack.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return shelfList;
+    }
+
+    public String getAvailability(Object place) {
+        int availability = 0;
+        try {
+            if (place instanceof Sector)
+                availability = serverCommunication.getAvailability((Sector) place);
+            else if (place instanceof Rack)
+                availability = serverCommunication.getAvailability((Rack) place);
+            else if (place instanceof Shelf)
+                availability = serverCommunication.getAvailability((Shelf) place);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return availability + "";
+    }
+
+    public List<ProductCard> getProductOnShelf(String id) {
+        List<ProductCard> productCardList = null;
+        try {
+            productCardList = serverCommunication.getProductOnShelf(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return productCardList;
     }
 }

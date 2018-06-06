@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-
-<AnchorPane id="availabilityBackground" prefHeight="600.0" prefWidth="900.0" stylesheets="@../CSS/otherWindow.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.AvailabilityController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="availabilityBackground" prefHeight="600.0" prefWidth="900.0"
+            stylesheets="@../CSS/otherWindow.css" xmlns="http://javafx.com/javafx/8.0.121"
+            fx:controller="gui.controllers.AvailabilityController">
    <children>
       <VBox layoutX="1.0" layoutY="48.0" prefHeight="600.0" prefWidth="900.0" styleClass="windowBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -30,7 +20,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <ChoiceBox prefWidth="150.0">
+                  <ChoiceBox fx:id="sectorChoiceBox" prefWidth="150.0">
                      <HBox.margin>
                         <Insets bottom="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
@@ -40,7 +30,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <ChoiceBox prefWidth="150.0">
+                  <ChoiceBox fx:id="rackChoiceBox" prefWidth="150.0">
                      <HBox.margin>
                         <Insets bottom="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
@@ -50,7 +40,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <ChoiceBox prefWidth="150.0">
+                  <ChoiceBox fx:id="shelfChoiceBox" prefWidth="150.0">
                      <HBox.margin>
                         <Insets bottom="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
@@ -69,7 +59,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Label" VBox.vgrow="ALWAYS">
+                        <Label fx:id="sectorSpace" text="" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -83,7 +73,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Label" VBox.vgrow="ALWAYS">
+                        <Label fx:id="rackSpace" text="" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -97,14 +87,15 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Label" VBox.vgrow="ALWAYS">
+                        <Label fx:id="shelfSpace" text="" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
                      </children>
                   </VBox>
-                  <ListView layoutX="228.0" layoutY="174.0" prefHeight="200.0" prefWidth="265.0" />
+                  <ListView fx:id="productsOnShelf" layoutX="228.0" layoutY="174.0" prefHeight="200.0"
+                            prefWidth="265.0"/>
                   <Label layoutX="279.0" layoutY="149.0" text="Products in this localization:" />
                </children>
             </AnchorPane>

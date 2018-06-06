@@ -1,21 +1,23 @@
 package JavaClasses;
 
-public class Sector {
-
+public class Shelf {
     private String id;
+    private int rackId;
     private int remainingSpace;
     private int space;
 
-    public Sector(String id) {
+    public Shelf() {
+    }
+
+    public Shelf(String id, int rackId, int remainingSpace, int space) {
         this.id = id;
+        this.rackId = rackId;
+        this.remainingSpace = remainingSpace;
+        this.space = space;
     }
 
-    public Sector() {
-    }
-
-    @Override
     public String toString() {
-        return id;
+        return String.valueOf(id);
     }
 
     public String getId() {
@@ -40,5 +42,13 @@ public class Sector {
 
     public void setSpace(int space) {
         this.space = space;
+    }
+
+    public int getRackId() {
+        return rackId;
+    }
+
+    public void setRackId(int rackId) {
+        this.rackId = rackId;
     }
 }

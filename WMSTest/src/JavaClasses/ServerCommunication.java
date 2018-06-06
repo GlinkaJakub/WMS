@@ -111,7 +111,7 @@ public class ServerCommunication {
         ResultSet rs = statement.executeQuery("EXEC getRack " + sectorId + " ");
         while (rs.next()){
             Rack rack = new Rack();
-            rack.setId(rs.getInt("id_rack"));
+            rack.setId(String.valueOf(rs.getInt("id_rack")));
             rack.setSectorId(rs.getInt("id_sector"));
             rack.setRackTypeId(rs.getInt("id_racktype"));
             rack.setRemainingSpace(rs.getInt("remainingspace"));
@@ -258,7 +258,6 @@ public class ServerCommunication {
         for (Product p : products)
             if (product.getId().equals(p.getId())) {
                 addProduct(product);
-                System.out.println(updateId);
                 ResultSet rs = statement.executeQuery("Exec ArchiveProduct " + product.getId() + ", " + updateId);
             }
     }
@@ -286,5 +285,41 @@ public class ServerCommunication {
 
     public void remove(ProductCard productCard) throws SQLException {
         statement.executeQuery(("EXEC ArchiveProductCard " + productCard.getId() + ", " + updateId));
+    }
+
+    public List<Shelf> getShelves(String id) throws SQLException {
+        List<Shelf> shelfList = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getShelves " + id);
+        while (rs.next())
+            shelfList.add(new Shelf(String.valueOf(rs.getInt("id_shelf")), rs.getInt("id_rack"),
+                    rs.getInt("remainingspace"), rs.getInt("totalspace")));
+        return shelfList;
+    }
+
+    public int getAvailability(Sector place) throws SQLException {
+        return getAvailability("Sector", place.getId());
+    }
+
+    public int getAvailability(Rack place) throws SQLException {
+        return getAvailability("Rack", place.getId());
+    }
+
+    public int getAvailability(Shelf place) throws SQLException {
+        return getAvailability("Shelf", place.getId());
+    }
+
+    public int getAvailability(String place, String id) throws SQLException {
+        ResultSet rs = statement.executeQuery("EXEC get" + place + "Space " + id);
+        rs.next();
+        return rs.getInt(1);
+    }
+
+    public List<ProductCard> getProductOnShelf(String id) throws SQLException {
+        List<ProductCard> productCardList = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("EXEC getProductOnShelf " + id);
+        while (rs.next())
+            productCardList.add(new ProductCard(rs.getInt("id_card"), rs.getInt("id_product"),
+                    rs.getString("placement"), rs.getString("name")));
+        return productCardList;
     }
 }
