@@ -11,6 +11,20 @@ public class Product {
     private int weight;
     private String group;
 
+    public Product(String name, String id, String maker, int width, int height, int length, int weight, String group) {
+        this.name = name;
+        this.id = id;
+        this.maker = maker;
+        this.width = width;
+        this.height = height;
+        this.length = length;
+        this.weight = weight;
+        this.group = group;
+    }
+
+    public Product() {
+    }
+
     @Override
     public String toString() {
         return "ID: " + id + ", Name: " + name;
@@ -72,11 +86,11 @@ public class Product {
         this.weight = weight;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
     public String getGroup() {
         return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }

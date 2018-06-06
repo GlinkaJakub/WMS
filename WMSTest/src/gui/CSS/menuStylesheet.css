@@ -18,6 +18,31 @@
     -fx-opacity: 85%;
 }
 
+.largeMainButton {
+    -fx-font-family: "Noto Serif";
+    -fx-font-size: 25px;
+    -fx-pref-width: 600px;
+    -fx-pref-height: 200px;
+    -webkit-fx-hgrow: always;
+    -moz-fx-hgrow: always;
+    -ms-fx-hgrow: always;
+    -o-fx-hgrow: always;
+    -khtml-fx-hgrow: always;
+    fx-hgrow: always;
+    -fx-text-fill: GOLD;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+    -fx-border-color: #32a700;
+    -fx-background-color: RGB(50, 50, 50);
+    -fx-border-style: dotted;
+    -fx-opacity: 85%;
+}
+
+.largeMainButton:hover {
+    -fx-background-color: RGB(70, 70, 70);
+    -fx-font-size: 28px;
+}
+
 .mainButton:hover {
     -fx-background-color: RGB(70, 70, 70);
     -fx-font-size: 28px;

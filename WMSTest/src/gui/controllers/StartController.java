@@ -4,11 +4,9 @@ import JavaClasses.Management;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -44,7 +42,7 @@ public class StartController {
 
     public void connectToTheServer() throws IOException {
 
-        String com = management.ConnectToTheServer(databaseField.getText(), hostField.getText(), portField.getText(), userField.getText(), passwordField.getText());
+        String com = management.connectToTheServer(databaseField.getText(), hostField.getText(), portField.getText(), userField.getText(), passwordField.getText());
 
         if (com.equals("Success")) {
 
