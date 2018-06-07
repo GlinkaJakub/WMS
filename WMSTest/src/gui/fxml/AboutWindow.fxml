@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" id="infoBackground" stylesheets="@../CSS/otherWindow.css"
+      xmlns="http://javafx.com/javafx/8.0.121" fx:controller="gui.controllers.AboutController">
+    <children>
+        <Pane prefHeight="600.0" prefWidth="900.0" styleClass="windowBackground" stylesheets="@../CSS/otherWindow.css">
+            <children>
+                <Label alignment="CENTER" layoutX="6.0" layoutY="32.0" prefHeight="17.0" prefWidth="900.0"
+                       styleClass="title" text="About program"/>
+                <Label layoutX="31.0" layoutY="99.0" prefHeight="384.0" prefWidth="851.0"
+                       text="&#9;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur mi sed quam aliquam placerat. Etiam mi diam, aliquet sed sem quis, pretium tincidunt nisi. Cras porttitor quis risus congue gravida. Aenean tincidunt in odio nec imperdiet. Pellentesque eu varius arcu. Suspendisse potenti. Nulla mattis elit et ultricies feugiat. Praesent at blandit tortor, blandit aliquet dui. Mauris pellentesque lorem quis hendrerit malesuada. Sed vestibulum, ipsum vel rhoncus malesuada, nisl arcu rutrum eros, vel dictum mi justo eget lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis elementum libero, a egestas dui. Proin scelerisque felis auctor, mollis orci eget, ultrices nunc. Mauris auctor egestas finibus. Vivamus tempor enim ante, ac tincidunt quam ultrices vel. Donec faucibus tellus id felis cursus tristique. Sed et suscipit lorem. Nam pulvinar, odio sit amet pharetra euismod, lorem felis semper ligula, a auctor odio magna eu metus. Vivamus non faucibus elit, non cursus urna.Suspendisse convallis tristique elit, facilisis efficitur justo fermentum et. &#10;&#9;&#10;&#9;Quisque ullamcorper cursus ex vitae fermentum. Aenean nec sollicitudin dolor. Donec consequat neque sit amet enim cursus, eu pharetra quam scelerisque. Morbi viverra varius porttitor. Fusce bibendum velit eu arcu efficitur, et interdum augue fringilla. Nunc nec orci iaculis, elementum nisi non, molestie odio. Suspendisse non volutpat risus.Duis ac commodo eros, eget rhoncus augue. Vestibulum convallis, erat vel imperdiet euismod, leo erat vulputate metus, nec tempus turpis dui a tortor. Donec eget odio vitae tellus volutpat pellentesque. Donec id volutpat ligula. Duis vel neque pretium, efficitur dui a, lobortis odio. Maecenas eleifend rutrum enim, at vulputate nunc volutpat ac. Vivamus sodales bibendum consectetur. Nunc ut ipsum non justo interdum venenatis eget eu eros. Duis ac sagittis nisl, tristique mollis neque. Aliquam condimentum mi in nibh malesuada, et vehicula nunc tristique.Phasellus pulvinar urna a libero rhoncus sollicitudin. &#10;&#9;&#10;&#9;Quisque ac commodo arcu. Etiam laoreet ut nunc sit amet fermentum. Fusce tempus auctor elit quis ullamcorper. Donec ornare quis ipsum ut blandit. Phasellus ac diam non velit rutrum malesuada id sed est. Curabitur egestas, risus ac consequat pharetra, risus erat accumsan ante, et egestas tortor dolor sed lectus. Praesent ac malesuada nunc, et efficitur sem. Quisque quis ex vel nibh faucibus efficitur. Quisque facilisis eu ante et ornare. Integer at convallis urna. Phasellus accumsan dui magna, sit amet vestibulum purus pellentesque sed. Suspendisse et suscipit velit, quis hendrerit est."
+                       wrapText="true"/>
+                <Button layoutX="31.0" layoutY="527.0" mnemonicParsing="false" onAction="#back" text="Back"/>
+            </children>
+        </Pane>
+    </children>
+</Pane>

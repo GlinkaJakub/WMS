@@ -47,11 +47,11 @@ public class MenuController {
         mainController.loadEditScreen();
     }
 
-    public void loadChangeScreen(){
+    public void loadChangeScreen() {
         mainController.loadChangeScreen();
     }
 
-    public void loadInfoScreen(){
+    public void loadInfoScreen() {
         mainController.loadInfoScreen();
     }
 
@@ -63,4 +63,7 @@ public class MenuController {
         this.mainController = mainController;
     }
 
+    public void setAboutScreen() {
+        mainController.loadAboutScreen();
+    }
 }

@@ -10,7 +10,7 @@ public class RackType {
     private int archive;
 
     @Override
-    public String toString(){
+    public String toString() {
         return "id: " + id + ", space: " + space + ", param: " + width + "x" + length;
     }
 

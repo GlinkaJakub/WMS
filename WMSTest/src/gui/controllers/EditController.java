@@ -124,30 +124,33 @@ public class EditController {
     }
 
     public void showMore() {
-        Object object = editListView.getSelectionModel().getSelectedItem();
-        if (object instanceof Product) {
-            Product product = (Product) object;
-            label1.setText(product.getId());
-            label2.setText(product.getName());
-            label3.setText(product.getGroup());
-            label4.setText(product.getMaker());
-            label5.setText(product.getWidth() + "x" + product.getHeight() + "x" +
-                    product.getLength() + ", weight: " + product.getWeight());
-        } else if (object instanceof Contractor) {
-            Contractor contractor = (Contractor) object;
-            label2.setText(contractor.getName());
-            label1.setText(contractor.getNip());
-            label3.setText(contractor.getPhone());
-            label4.setText(contractor.getEmail());
-            label5.setText(contractor.getStreet() + " st. " + contractor.getBuildingNumber() +
-                    " " + contractor.getPostCode() + " " + contractor.getCity());
-        } else {
-            ProductCard productCard = (ProductCard) object;
-            label1.setText(String.valueOf(productCard.getId()));
-            label2.setText(productCard.getName());
-            label3.setText(productCard.getPlaceId());
-            label4.setText("");
-            label5.setText("");
+        try {
+            Object object = editListView.getSelectionModel().getSelectedItem();
+            if (object instanceof Product) {
+                Product product = (Product) object;
+                label1.setText(product.getId());
+                label2.setText(product.getName());
+                label3.setText(product.getGroup());
+                label4.setText(product.getMaker());
+                label5.setText(product.getWidth() + "x" + product.getHeight() + "x" +
+                        product.getLength() + ", weight: " + product.getWeight());
+            } else if (object instanceof Contractor) {
+                Contractor contractor = (Contractor) object;
+                label2.setText(contractor.getName());
+                label1.setText(contractor.getNip());
+                label3.setText(contractor.getPhone());
+                label4.setText(contractor.getEmail());
+                label5.setText(contractor.getStreet() + " st. " + contractor.getBuildingNumber() +
+                        " " + contractor.getPostCode() + " " + contractor.getCity());
+            } else {
+                ProductCard productCard = (ProductCard) object;
+                label1.setText(String.valueOf(productCard.getId()));
+                label2.setText(productCard.getName());
+                label3.setText(productCard.getPlaceId());
+                label4.setText("");
+                label5.setText("");
+            }
+        } catch (NullPointerException e) {
         }
     }
 

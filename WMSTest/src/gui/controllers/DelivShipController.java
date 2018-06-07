@@ -197,11 +197,14 @@ public class DelivShipController {
     }
 
     public void showMoreAboutContractor() {
-        Contractor contractor = providerListView.getSelectionModel().getSelectedItem();
-        contractorNameLabel.setText(contractor.getName() + ", " + contractor.getNip());
-        phone.setText(contractor.getPhone());
-        address.setText(contractor.getCity() + " " + contractor.getStreet() + " st. " + contractor.getPostCode() + " " + contractor.getCity());
-        email.setText(contractor.getEmail());
+        try {
+            Contractor contractor = providerListView.getSelectionModel().getSelectedItem();
+            contractorNameLabel.setText(contractor.getName() + ", " + contractor.getNip());
+            phone.setText(contractor.getPhone());
+            address.setText(contractor.getStreet() + " st. " + contractor.getPostCode() + " " + contractor.getCity());
+            email.setText(contractor.getEmail());
+        } catch (NullPointerException e) {
+        }
     }
 
     public void addProvider() {
@@ -249,8 +252,8 @@ public class DelivShipController {
         productsToDeliver.clear();
     }
 
-    public void removeProduct(){
-        productsToDeliver.remove(productsToDeliverView .getSelectionModel().getSelectedItem());
+    public void removeProduct() {
+        productsToDeliver.remove(productsToDeliverView.getSelectionModel().getSelectedItem());
 
     }
 
@@ -259,4 +262,7 @@ public class DelivShipController {
     }
 
 
+    public void goToCreate() {
+        mainController.loadCreateScreen();
+    }
 }

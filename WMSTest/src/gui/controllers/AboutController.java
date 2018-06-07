@@ -1,7 +1,6 @@
 package gui.controllers;
 
-public class InfoController {
-
+public class AboutController {
     private MainController mainController;
 
     public void setMainController(MainController mainController) {
@@ -11,5 +10,4 @@ public class InfoController {
     public void back() {
         mainController.loadMenuScreen();
     }
-
 }

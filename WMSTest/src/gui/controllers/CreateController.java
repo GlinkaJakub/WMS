@@ -10,9 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-
-import java.util.List;
 
 
 public class CreateController {
@@ -46,16 +43,11 @@ public class CreateController {
 
     @FXML
     public ListView<RackType> rackTypeListView;
-
-    private ObservableList<RackType> rackTypeList = FXCollections.observableArrayList();
-
-    private ObservableList<Sector> sectorList = FXCollections.observableArrayList();
-
-    private MainController mainController;
-
     @FXML
     public ListView<Rack> rackListView;
-
+    private ObservableList<RackType> rackTypeList = FXCollections.observableArrayList();
+    private ObservableList<Sector> sectorList = FXCollections.observableArrayList();
+    private MainController mainController;
     private ObservableList<Rack> rackList = FXCollections.observableArrayList();
 
     @FXML

@@ -61,7 +61,11 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="433.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="300.0" styleClass="mainButton" stylesheets="@../CSS/menuStylesheet.css" text="About program" textAlignment="CENTER" textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                onAction="#setAboutScreen" prefWidth="300.0" styleClass="mainButton"
+                                stylesheets="@../CSS/menuStylesheet.css" text="About program" textAlignment="CENTER"
+                                textFill="GOLD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="GilliusADF-BoldCond" size="25.0" />
                            </font>

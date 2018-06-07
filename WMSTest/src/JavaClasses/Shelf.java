@@ -9,6 +9,10 @@ public class Shelf {
     public Shelf() {
     }
 
+    public Shelf(String id) {
+        this.id = id;
+    }
+
     public Shelf(String id, int rackId, int remainingSpace, int space) {
         this.id = id;
         this.rackId = rackId;
