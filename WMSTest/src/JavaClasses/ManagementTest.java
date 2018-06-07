@@ -64,7 +64,9 @@ public class ManagementTest {
     @Test
     public void getAvailability() {
         connectToTheServer();
-        Assert.assertEquals(management.getAvailability(new Sector("1")), "1443");
+        Assert.assertEquals(management.getAvailability(new Sector("1")), "0/200 (0.0%)");
+        Assert.assertEquals(management.getAvailability(new Rack("5")), "50/50 (100.0%)");
+        Assert.assertEquals(management.getAvailability(new Shelf("10")), "0/10 (0.0%)");
     }
 
     @Test

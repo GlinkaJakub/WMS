@@ -15,7 +15,7 @@ public class Rack {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "ID: " + id + ", Rack Type ID:" + rackTypeId;
     }
 

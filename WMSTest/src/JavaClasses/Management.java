@@ -2,6 +2,8 @@ package JavaClasses;
 
 import javafx.collections.ObservableList;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
 public class Management {
 
     private static final Management instance = new Management();
+    private ServerCommunication serverCommunication = new ServerCommunication();
 
     private Management() {
     }
@@ -16,8 +19,6 @@ public class Management {
     public static Management getInstance() {
         return instance;
     }
-
-    private ServerCommunication serverCommunication = new ServerCommunication();
 
     public String connectToTheServer(String database, String host, String port, String user, String password) {
         serverCommunication.setDatabase(database);
@@ -140,14 +141,14 @@ public class Management {
     public void addRack(String sectorId, String rackType) {
         try {
             serverCommunication.addRack(Integer.valueOf(sectorId), Integer.valueOf(rackType));
-        }catch (SQLException e){
+        } catch (SQLException e) {
         }
     }
 
     public void addRackType(RackType rackType) {
-        try{
+        try {
             serverCommunication.addRackType(rackType);
-        }catch(SQLException e){
+        } catch (SQLException e) {
         }
     }
 
@@ -171,11 +172,11 @@ public class Management {
 
     public List<Rack> getRack(Sector sector) {
         List<Rack> racks = new ArrayList<>();
-        if(sector == null)
+        if (sector == null)
             return null;
-        try{
+        try {
             racks = serverCommunication.getRack(Integer.valueOf(sector.getId()));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return racks;
@@ -183,9 +184,9 @@ public class Management {
 
     public List<RackType> getRackType() {
         List<RackType> rackTypes = new ArrayList<>();
-        try{
+        try {
             rackTypes = serverCommunication.getRackTypes();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return rackTypes;
@@ -267,18 +268,28 @@ public class Management {
 
     public String getAvailability(Object place) {
         int availability = 0;
+        int totalSpace = 0;
+        double procent = 0;
         try {
-            if (place instanceof Sector)
+            if (place instanceof Sector) {
                 availability = serverCommunication.getAvailability((Sector) place);
-            else if (place instanceof Rack)
+                totalSpace = serverCommunication.getTotalSpace((Sector) place);
+            } else if (place instanceof Rack) {
                 availability = serverCommunication.getAvailability((Rack) place);
-            else if (place instanceof Shelf)
+                totalSpace = serverCommunication.getTotalSpace((Rack) place);
+            } else if (place instanceof Shelf) {
                 availability = serverCommunication.getAvailability((Shelf) place);
-
+                totalSpace = serverCommunication.getTotalSpace((Shelf) place);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return availability + "";
+        if (totalSpace != 0)
+            procent = 100 * availability / totalSpace;
+        else
+            procent = 0;
+
+        return availability + "/" + totalSpace + " (" + BigDecimal.valueOf(procent).setScale(3, RoundingMode.HALF_UP).doubleValue() + "%)";
     }
 
     public List<ProductCard> getProductOnShelf(String id) {
@@ -290,4 +301,5 @@ public class Management {
         }
         return productCardList;
     }
+
 }

@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <AnchorPane id="deliverBackground" prefHeight="600.0" prefWidth="900.0" stylesheets="@../CSS/otherWindow.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.DelivShipController">
    <children>
       <VBox prefHeight="579.0" prefWidth="900.0" styleClass="windowBackground" stylesheets="@../CSS/otherWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -48,7 +38,8 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Button mnemonicParsing="false" text="Add new product" AnchorPane.rightAnchor="10.0" />
+                              <Button mnemonicParsing="false" onAction="#goToCreate" text="Add new product"
+                                      AnchorPane.rightAnchor="10.0"/>
                            </children>
                         </AnchorPane>
                         <HBox prefHeight="405.0" prefWidth="553.0" VBox.vgrow="ALWAYS">
@@ -174,7 +165,8 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Button layoutX="144.0" layoutY="4.0" mnemonicParsing="false" text="Add new provider" AnchorPane.rightAnchor="10.0" />
+                              <Button layoutX="144.0" layoutY="4.0" mnemonicParsing="false" onAction="#goToCreate"
+                                      text="Add new provider" AnchorPane.rightAnchor="10.0"/>
                            </children>
                         </AnchorPane>
                         <ListView fx:id="providerListView" onMouseClicked="#showMoreAboutContractor" prefHeight="192.0" prefWidth="277.0" VBox.vgrow="ALWAYS">
@@ -257,7 +249,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="824.0" layoutY="-4.0" mnemonicParsing="false" text="Realize" onAction="#realize">
+                  <Button layoutX="824.0" layoutY="-4.0" mnemonicParsing="false" onAction="#realize" text="Realize">
                      <font>
                         <Font size="20.0" />
                      </font>

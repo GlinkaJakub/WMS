@@ -82,4 +82,11 @@ public class MainController {
         InfoController infoController = loader.getController();
         infoController.setMainController(this);
     }
+
+    public void loadAboutScreen() {
+        FXMLLoader loader = fxmlLoader("/gui/fxml/AboutWindow.fxml");
+
+        AboutController aboutController = loader.getController();
+        aboutController.setMainController(this);
+    }
 }
